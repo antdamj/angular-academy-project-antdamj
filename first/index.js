@@ -1,6 +1,17 @@
 const addReviewForm = document.querySelector("#add-review");
 let reviews = []
 
+// onload ?
+for (let i = 0; i < localStorage.length; i++) {
+    reviews.push({
+        "id": i,
+        "data": {
+            "text": localStorage.key(i),
+            "score": localStorage.getItem(localStorage.key(i))
+        }
+    });
+}
+
 const renderData = () => {
     const reviewsList = document.querySelector("#reviews-list");
     reviewsList.innerHTML = ""
@@ -15,10 +26,19 @@ const renderData = () => {
         const reviewText = document.createElement("div");
         const reviewRating = document.createElement("div");
 
-        reviewText.textContent = element.text;
-        review.appendChild(reviewText)
-        reviewRating.textContent = element.score + "/5";
-        review.appendChild(reviewRating);
+        const reviewData = document.createElement("div");
+        reviewData.classList.add('col-11');
+        reviewText.textContent = element.data.text;
+        reviewData.appendChild(reviewText);
+        reviewRating.textContent = element.data.score + "/5";
+        reviewData.appendChild(reviewRating);
+
+        const deleteReviewButton = document.createElement("button");
+        deleteReviewButton.classList.add('col-1')
+        deleteReviewButton.textContent = "-";
+
+        review.appendChild(reviewData)
+        review.appendChild(deleteReviewButton)
 
         // add list item to list
         reviewsList.appendChild(review);
@@ -29,6 +49,7 @@ const renderData = () => {
 }
 
 addReviewForm.addEventListener("submit", (event) => {
+    
     // dont reload on sumbit
     event.preventDefault();
 
@@ -41,6 +62,12 @@ addReviewForm.addEventListener("submit", (event) => {
         "score": formData.get("rating")
     })
 
+    localStorage.setItem(formData.get("review"), formData.get("rating"))
+
+    // console.log(localStorage)
+
     renderData();
 });
 
+
+renderData()
