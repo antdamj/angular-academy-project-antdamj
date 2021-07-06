@@ -4,24 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>TV Show</title>
 </head>
 <body>
-    <h1>TV Show Title</h1>
-    <div id="show-title">
-        sample text
+
+    <h1 class="centered-container">TV Shows App</h1>
+
+    <div class="centered-container col-sm-12 col-md-6 show-info" id="show-title">
+        <div class="col-6" id="show-description">
+            <h3>Show Title</h3>
+            He fly in space. He fly in time. Time and relative dimensions in space.
+            It's smaller on the outside! Or is it? I remember Daleks. I haven't watched
+            it in like 6 years. How many of them are there? Can't remember.
+            Doctor. Doctor Who?
+        </div>
+        <div class="col-6" id="show-image">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/91-mgsziAEL.jpg">
+        </div>
     </div>
-    
-    <h2>Reviews</h2>
-    <form id="add-review">
-        <input name="review" id="review" type="text" placeholder="Add review"/>
-        <input name="score" id="score" type="text" min="1" max="5"> 
-        <button type="submit">POST</button>
+
+    <form class="centered-container col-sm-12 col-md-6" id="add-review">
+        <h3>Reviews</h3>
+        <textarea name="review" id="review" class="col-12" placeholder="Add review..."></textarea>
+        <div>
+            Rating
+            <input name="rating" id="rating" type="text">
+        </div>
+        <button id="submit-button" type="submit">Review</button>
     </form>
 
-    <ul id="reviews-list">
+    <div class="centered-container" id="reviews-list">
 
-    </ul>
+    </div>
 
     <script src="index.js"></script>
 </body>

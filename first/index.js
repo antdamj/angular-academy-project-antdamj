@@ -2,16 +2,26 @@ const addReviewForm = document.querySelector("#add-review");
 let reviews = []
 
 const renderData = () => {
-    const unorderedList = document.querySelector("#reviews-list");
-    unorderedList.innerHTML = ""
+    const reviewsList = document.querySelector("#reviews-list");
+    reviewsList.innerHTML = ""
     
     reviews.forEach((element) => {
         // create list item element with data
-        const li = document.createElement("li");
-        li.textContent = element.text + " " + element.score;
+        const review = document.createElement("div");
+        review.classList.add('review-box')
+        review.classList.add('centered-container')
+        review.classList.add('col-12')
+
+        const reviewText = document.createElement("div");
+        const reviewRating = document.createElement("div");
+
+        reviewText.textContent = element.text;
+        review.appendChild(reviewText)
+        reviewRating.textContent = element.score + "/5";
+        review.appendChild(reviewRating);
 
         // add list item to list
-        unorderedList.appendChild(li);
+        reviewsList.appendChild(review);
     });
 
     // clear form fields
@@ -28,7 +38,7 @@ addReviewForm.addEventListener("submit", (event) => {
     // add review to array
     reviews.push({
         "text": formData.get("review"),
-        "score": formData.get("score")
+        "score": formData.get("rating")
     })
 
     renderData();
