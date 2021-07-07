@@ -1,5 +1,4 @@
 const addReviewForm = document.querySelector("#add-review");
-let reviews = []
 
 // onload ?
 for (let i = 0; i < localStorage.length; i++) {
@@ -15,33 +14,49 @@ for (let i = 0; i < localStorage.length; i++) {
 const renderData = () => {
     const reviewsList = document.querySelector("#reviews-list");
     reviewsList.innerHTML = ""
-    
-    reviews.forEach((element) => {
-        // create list item element with data
-        const review = document.createElement("div");
-        review.classList.add('review-box')
-        review.classList.add('centered-container')
-        review.classList.add('col-12')
 
-        const reviewText = document.createElement("div");
-        const reviewRating = document.createElement("div");
+    Object.keys(localStorage).forEach(function(key){
+        let element;
 
-        const reviewData = document.createElement("div");
-        reviewData.classList.add('col-11');
-        reviewText.textContent = element.data.text;
-        reviewData.appendChild(reviewText);
-        reviewRating.textContent = element.data.score + "/5";
-        reviewData.appendChild(reviewRating);
+        try {
+            element = JSON.parse(localStorage.getItem(key));
+        } catch (e) {
+            console.log("error")
+        };
 
-        const deleteReviewButton = document.createElement("button");
-        deleteReviewButton.classList.add('col-1')
-        deleteReviewButton.textContent = "-";
+        if (element != null) {
+            const reviewBox = document.createElement("div");
+            reviewBox.classList.add('review-box')
+            reviewBox.classList.add('centered-container')
+            reviewBox.classList.add('col-12')
 
-        review.appendChild(reviewData)
-        review.appendChild(deleteReviewButton)
+            const reviewData = document.createElement("div");
+            reviewData.classList.add('col-11');
 
-        // add list item to list
-        reviewsList.appendChild(review);
+            const reviewText = document.createElement("div");
+            const reviewRating = document.createElement("div");
+
+            reviewText.textContent = element.text;
+            reviewData.appendChild(reviewText)
+            reviewRating.textContent = element.score + "/5";
+            reviewData.appendChild(reviewRating);
+
+            const reviewDelete = document.createElement("div");
+            reviewDelete.classList.add('col-1');
+            const reviewDeleteButton = document.createElement("button");
+            reviewDeleteButton.textContent = "-";
+            reviewDeleteButton.onclick = function() {
+                localStorage.removeItem(key);
+                renderData();
+            }
+            reviewDelete.appendChild(reviewDeleteButton);
+
+            reviewBox.appendChild(reviewData);
+            reviewBox.appendChild(reviewDelete);
+
+            // add list item to list
+            reviewsList.appendChild(reviewBox);
+        }
     });
 
     // clear form fields
@@ -56,11 +71,26 @@ addReviewForm.addEventListener("submit", (event) => {
     // get form data
     const formData = new FormData(addReviewForm);
 
-    // add review to array
-    reviews.push({
-        "text": formData.get("review"),
-        "score": formData.get("rating")
-    })
+    // check form data
+    let valid = true;
+    if (!formData.get("review") || !formData.get("rating")) {
+        alert("Fields cannot be empty! Please try again.");
+        valid = false;
+    }
+    if (formData.get("rating") < '1' || formData.get("rating") > '5') {
+        alert("Rating must be a numeric value between 1 and 5! Please try again.");
+        valid = false;
+    }
+
+    // add review to localStorage
+    if (valid) {
+        localStorage.setItem(localStorage.length,
+            JSON.stringify({
+                "text": formData.get("review"),
+                "score": formData.get("rating") 
+            })
+        )
+    }
 
     localStorage.setItem(formData.get("review"), formData.get("rating"))
 
@@ -69,5 +99,4 @@ addReviewForm.addEventListener("submit", (event) => {
     renderData();
 });
 
-
-renderData()
+renderData();
