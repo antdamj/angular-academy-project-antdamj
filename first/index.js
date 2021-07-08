@@ -38,6 +38,7 @@ const renderData = () => {
 			const reviewDelete = document.createElement('div');
 			reviewDelete.classList.add('col-1');
 			const reviewDeleteButton = document.createElement('button');
+			reviewDeleteButton.classList.add('delete-button');
 			reviewDeleteButton.textContent = '-';
 			reviewDeleteButton.onclick = function () {
 				localStorage.removeItem(key);
@@ -58,7 +59,8 @@ const renderData = () => {
 
 	// get avg rating without insignificant zeros
 	avg = +(avg / localStorage.length).toFixed(2);
-	if (localStorage.length) avgRating.innerHTML = 'Average rating: ' + avg.toString() + '/5';
+	if (localStorage.length > 0) avgRating.innerHTML = 'Average rating: ' + avg.toString() + '/5';
+	else avgRating.innerHTML = null;
 };
 
 addReviewForm.addEventListener('submit', (event) => {
