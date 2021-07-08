@@ -1,66 +1,91 @@
 const addReviewForm = document.querySelector('#add-review');
 
-const renderData = () => {
+const init = () => {
+	load();
+	renderAllReviews();
+};
+
+// manage data
+
+let reviews = [];
+
+const load = () => {
+	const storedReviews = JSON.parse(localStorage.getItem('reviews'));
+	if (storedReviews) {
+		console.log('Data loaded.');
+		reviews = storedReviews;
+	} else {
+		console.log('No data stored.');
+		reviews = [];
+	}
+};
+
+const store = () => {
+	localStorage.removeItem('reviews');
+	localStorage.setItem('reviews', JSON.stringify(reviews));
+};
+
+// render functions
+
+const renderReview = (review) => {
 	const reviewsList = document.querySelector('#reviews-list');
-	reviewsList.innerHTML = '';
 
-	const avgRating = document.querySelector('#avg-rating');
-	let avg = 0.0;
+	const reviewBox = document.createElement('div');
+	reviewBox.classList.add('review-box');
+	reviewBox.classList.add('centered-container');
+	reviewBox.classList.add('col-12');
 
-	Object.keys(localStorage).forEach(function (key) {
-		let element;
+	const reviewData = document.createElement('div');
+	reviewData.classList.add('col-11');
 
-		try {
-			element = JSON.parse(localStorage.getItem(key));
-		} catch (e) {
-			console.log('error');
-		}
+	const reviewText = document.createElement('div');
+	const reviewRating = document.createElement('div');
 
-		if (element != null) {
-			avg += parseFloat(element.score);
+	reviewText.textContent = `${review.text}`;
+	reviewData.appendChild(reviewText);
+	reviewRating.textContent = `${review.score}/5`;
+	reviewData.appendChild(reviewRating);
 
-			const reviewBox = document.createElement('div');
-			reviewBox.classList.add('review-box');
-			reviewBox.classList.add('centered-container');
-			reviewBox.classList.add('col-12');
+	const reviewDelete = document.createElement('div');
+	reviewDelete.classList.add('col-1');
+	const reviewDeleteButton = document.createElement('button');
+	reviewDeleteButton.classList.add('delete-button');
+	reviewDeleteButton.textContent = '-';
+	reviewDeleteButton.onclick = function () {
+		reviewsList.removeChild(reviewBox);
+		let index = reviews.indexOf(review);
+		reviews.splice(index, 1);
+		renderRating();
+		console.log(reviews);
+	};
+	reviewDelete.appendChild(reviewDeleteButton);
 
-			const reviewData = document.createElement('div');
-			reviewData.classList.add('col-11');
+	reviewBox.appendChild(reviewData);
+	reviewBox.appendChild(reviewDelete);
 
-			const reviewText = document.createElement('div');
-			const reviewRating = document.createElement('div');
+	reviewsList.appendChild(reviewBox);
 
-			reviewText.textContent = element.text;
-			reviewData.appendChild(reviewText);
-			reviewRating.textContent = element.score + '/5';
-			reviewData.appendChild(reviewRating);
-
-			const reviewDelete = document.createElement('div');
-			reviewDelete.classList.add('col-1');
-			const reviewDeleteButton = document.createElement('button');
-			reviewDeleteButton.classList.add('delete-button');
-			reviewDeleteButton.textContent = '-';
-			reviewDeleteButton.onclick = function () {
-				localStorage.removeItem(key);
-				renderData();
-			};
-			reviewDelete.appendChild(reviewDeleteButton);
-
-			reviewBox.appendChild(reviewData);
-			reviewBox.appendChild(reviewDelete);
-
-			// add list item to list
-			reviewsList.appendChild(reviewBox);
-		}
-	});
-
-	// clear form fields
 	addReviewForm.reset();
+	renderRating();
+};
 
-	// get avg rating without insignificant zeros
-	avg = +(avg / localStorage.length).toFixed(2);
-	if (localStorage.length > 0) avgRating.innerHTML = 'Average rating: ' + avg.toString() + '/5';
-	else avgRating.innerHTML = null;
+const renderAllReviews = () => {
+	reviews.forEach((review) => {
+		renderReview(review);
+	});
+};
+
+const renderRating = () => {
+	avg = 0.0;
+	reviews.forEach((review) => {
+		avg += parseFloat(review.score);
+	});
+	avg /= reviews.length;
+	avg = avg.toFixed(2);
+
+	const averageRating = document.querySelector('#avg-rating');
+	if (reviews.length) averageRating.innerHTML = `Average rating: ${avg}/5`;
+	else averageRating.innerHTML = '';
 };
 
 addReviewForm.addEventListener('submit', (event) => {
@@ -81,18 +106,21 @@ addReviewForm.addEventListener('submit', (event) => {
 		valid = false;
 	}
 
-	// add review to localStorage
+	const text = formData.get('review');
+	const score = formData.get('rating');
+
+	const review = {
+		text,
+		score,
+	};
+
 	if (valid) {
-		localStorage.setItem(
-			localStorage.length,
-			JSON.stringify({
-				text: formData.get('review'),
-				score: formData.get('rating'),
-			})
-		);
+		reviews.push(review);
+		renderRating();
+		renderReview(review);
 	}
 
-	renderData();
+	store();
 });
 
-renderData();
+init();
