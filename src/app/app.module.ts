@@ -8,9 +8,10 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AllShowsContainerComponent } from './all-shows-container/all-shows-container.component';
+import { ShowListComponent } from './show-list/show-list.component';
 
 @NgModule({
-	declarations: [AppComponent, MainLayoutComponent, SidenavComponent, AllShowsContainerComponent],
+	declarations: [AppComponent, MainLayoutComponent, SidenavComponent, AllShowsContainerComponent, ShowListComponent],
 	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule],
 	providers: [],
 	bootstrap: [AppComponent],
