@@ -7,6 +7,10 @@ import { Show } from 'src/services/show.model';
 	styleUrls: ['./show-list.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ShowListComponent {
+export class ShowListComponent implements OnInit {
 	@Input() shows: Array<Show>;
+
+	ngOnInit() {
+		console.log(this.shows);
+	}
 }
