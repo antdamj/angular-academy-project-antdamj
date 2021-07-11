@@ -1,16 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Show } from 'src/services/show.model';
 
 @Component({
-  selector: 'app-main-layout',
-  templateUrl: './main-layout.component.html',
-  styleUrls: ['./main-layout.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'app-main-layout',
+	templateUrl: './main-layout.component.html',
+	styleUrls: ['./main-layout.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainLayoutComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class MainLayoutComponent {
+	@Input() shows: Array<Show>;
 }
