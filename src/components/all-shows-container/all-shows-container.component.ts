@@ -11,6 +11,6 @@ export class AllShowsContainerComponent implements OnInit {
 	@Input() shows: Array<Show>;
 
 	ngOnInit() {
-		this.shows.forEach((s) => console.log(s.getRatingPercentage()));
+		this.shows.forEach((s) => console.log(s.ratingPercentage));
 	}
 }
