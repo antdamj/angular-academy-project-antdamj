@@ -10,4 +10,8 @@ export class ShowCardComponent {
 	@Input() title: string;
 	@Input() avgRating: number;
 	@Input() imageUrl: string;
+
+	heyTitle() {
+		console.log(this.title);
+	}
 }
