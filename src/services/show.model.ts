@@ -1,11 +1,17 @@
 export class Show {
 	title: string;
-	avgRating: number;
+	averageRating: number;
 	imageUrl: string;
+	description: string;
 
 	constructor(showData: any) {
 		this.title = showData.title;
-		this.avgRating = showData.avgRating;
+		this.averageRating = showData.averageRating;
 		this.imageUrl = showData.imageUrl;
+		this.description = showData.description;
+	}
+
+	getRatingPercentage(): number {
+		return (100 * this.averageRating) / 5;
 	}
 }
