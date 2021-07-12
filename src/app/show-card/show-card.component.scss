@@ -1,0 +1,16 @@
+:host {
+	display: inline-block;
+}
+
+.post-card {
+	padding: 0;
+	margin: 16px;
+	border-radius: 24px;
+	overflow: hidden;
+}
+
+img {
+	width: 240px;
+	height: 240px;
+	object-fit: cover;
+}
