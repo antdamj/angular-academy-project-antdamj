@@ -10,19 +10,22 @@ export class AppComponent implements OnInit {
 	shows: Array<Show> = [
 		new Show({
 			title: 'First show',
-			avgRating: 4.2,
+			averageRating: 4.2,
 			imageUrl: 'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg',
+			description: 'Ovo je za prvu',
 		}),
 		new Show({
 			title: 'Second show',
-			avgRating: 3.6,
+			averageRating: 3.6,
 			imageUrl: 'https://www.guidedogs.org/wp-content/uploads/2019/11/website-donate-mobile.jpg',
+			description: 'Druga',
 		}),
 		new Show({
 			title: 'Third show',
-			avgRating: 4.8,
+			averageRating: 4.8,
 			imageUrl:
 				'https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2021/02/GettyImages-997141470-e1614176377827.jpg',
+			description: 'Treci show',
 		}),
 	];
 
