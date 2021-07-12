@@ -11,7 +11,7 @@ export class Show {
 		this.description = showData.description;
 	}
 
-	getRatingPercentage(): number {
+	get ratingPercentage(): number {
 		return (100 * this.averageRating) / 5;
 	}
 }

@@ -4,17 +4,27 @@ import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { AllShowsContainerComponent } from './all-shows-container/all-shows-container.component';
-import { ShowListComponent } from './show-list/show-list.component';
-import { ShowCardComponent } from './show-card/show-card.component';
-import { RatingComponent } from './rating/rating.component';
+import { MatIconModule } from '@angular/material/icon';
+
+import { MainLayoutComponent } from 'src/components/main-layout/main-layout.component';
+import { SidenavComponent } from 'src/components/sidenav/sidenav.component';
+import { AllShowsContainerComponent } from 'src/components/all-shows-container/all-shows-container.component';
+import { ShowListComponent } from 'src/components/show-list/show-list.component';
+import { ShowCardComponent } from 'src/components/show-card/show-card.component';
+import { RatingComponent } from 'src/components/rating/rating.component';
 
 @NgModule({
-	declarations: [AppComponent, MainLayoutComponent, SidenavComponent, AllShowsContainerComponent, ShowListComponent, ShowCardComponent, RatingComponent],
-	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule],
+	declarations: [
+		AppComponent,
+		MainLayoutComponent,
+		SidenavComponent,
+		AllShowsContainerComponent,
+		ShowListComponent,
+		ShowCardComponent,
+		RatingComponent,
+	],
+	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, MatIconModule],
 	providers: [],
 	bootstrap: [AppComponent],
 })
