@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Show } from 'src/services/show.model';
+import { ShowService } from 'src/services/show.service';
 
 @Component({
 	selector: 'app-all-shows-container',
@@ -8,9 +9,11 @@ import { Show } from 'src/services/show.model';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AllShowsContainerComponent implements OnInit {
-	@Input() shows: Array<Show>;
+	public shows: Array<Show>;
+
+	constructor(private showService: ShowService) {}
 
 	ngOnInit() {
-		this.shows.forEach((s) => console.log(s.ratingPercentage));
+		this.shows = this.showService.shows;
 	}
 }
