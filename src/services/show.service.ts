@@ -27,7 +27,12 @@ export class ShowService {
 		},
 	];
 
-	public get shows() {
+	public get shows(): Array<Show> {
 		return this.rawData.map((s) => new Show(s));
+	}
+
+	public get topRated(): Array<Show> {
+		let s = this.shows;
+		return s.filter((show) => show.averageRating >= 4.0);
 	}
 }
