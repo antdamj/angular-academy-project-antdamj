@@ -14,6 +14,7 @@ import { ShowListComponent } from 'src/components/show-list/show-list.component'
 import { ShowCardComponent } from 'src/components/show-card/show-card.component';
 import { RatingComponent } from 'src/components/rating/rating.component';
 import { AppRoutingModule } from './app-routing.module';
+import { TopShowsContainerComponent } from '../components/top-shows-container/top-shows-container.component';
 
 @NgModule({
 	declarations: [
@@ -24,6 +25,8 @@ import { AppRoutingModule } from './app-routing.module';
 		ShowListComponent,
 		ShowCardComponent,
 		RatingComponent,
+		ShowListComponent,
+		TopShowsContainerComponent,
 	],
 	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, MatIconModule, AppRoutingModule],
 	providers: [],
