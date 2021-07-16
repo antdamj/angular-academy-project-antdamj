@@ -3,12 +3,14 @@ export class Show {
 	averageRating: number;
 	imageUrl: string;
 	description: string;
+	id: string;
 
 	constructor(showData: any) {
 		this.title = showData.title;
 		this.averageRating = showData.averageRating;
 		this.imageUrl = showData.imageUrl;
 		this.description = showData.description;
+		this.id = showData.id;
 	}
 
 	get ratingPercentage(): number {
