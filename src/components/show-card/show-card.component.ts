@@ -11,7 +11,7 @@ export class ShowCardComponent {
 	@Input() avgRating: number;
 	@Input() imageUrl: string;
 
-	heyTitle() {
+	heyTitle(): void {
 		console.log(this.title);
 	}
 }

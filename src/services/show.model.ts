@@ -1,11 +1,13 @@
-export class Show {
-	title: string;
-	averageRating: number;
-	imageUrl: string;
-	description: string;
-	id: string;
+import { IShow } from 'src/interfaces/show.interface';
 
-	constructor(showData: any) {
+export class Show {
+	private title: string;
+	private averageRating: number;
+	private imageUrl: string;
+	private description: string;
+	private id: string;
+
+	constructor(showData: IShow) {
 		this.title = showData.title;
 		this.averageRating = showData.averageRating;
 		this.imageUrl = showData.imageUrl;
@@ -13,7 +15,15 @@ export class Show {
 		this.id = showData.id;
 	}
 
-	get ratingPercentage(): number {
+	public get ratingPercentage(): number {
 		return (100 * this.averageRating) / 5;
+	}
+
+	public getavgRating(): number {
+		return this.averageRating;
+	}
+
+	public getId(): string {
+		return this.id;
 	}
 }

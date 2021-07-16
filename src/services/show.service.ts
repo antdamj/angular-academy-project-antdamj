@@ -36,10 +36,10 @@ export class ShowService {
 	}
 
 	public get topRated(): Array<Show> {
-		return this.shows.filter((show: Show) => show.averageRating >= 4.0);
+		return this.shows.filter((show: Show) => show.getavgRating() >= 4.0);
 	}
 
 	public getshowById(id: String): Show | undefined {
-		return this.shows.find((show: Show) => show.id === id);
+		return this.shows.find((show: Show) => show.getId() === id);
 	}
 }
