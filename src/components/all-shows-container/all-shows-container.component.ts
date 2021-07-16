@@ -9,7 +9,7 @@ import { ShowService } from 'src/services/show.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AllShowsContainerComponent implements OnInit {
-	public shows: Array<Show> | undefined;
+	public shows: Array<Show>;
 
 	constructor(private showService: ShowService) {}
 
