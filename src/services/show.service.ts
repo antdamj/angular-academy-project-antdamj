@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { IShow } from 'src/interfaces/show.interface';
 import { Show } from './show.model';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class ShowService {
-	rawData: Array<any> = [
+	rawData: Array<IShow> = [
 		{
 			title: 'First show',
 			id: '1',

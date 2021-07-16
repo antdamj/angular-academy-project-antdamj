@@ -16,10 +16,6 @@ const routes: Routes = [
 				component: AllShowsContainerComponent,
 			},
 			{
-				path: 'sidenav',
-				component: SidenavComponent,
-			},
-			{
 				path: 'top-rated',
 				component: TopShowsContainerComponent,
 			},

@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ILink } from 'src/interfaces/link.interface';
 
 @Component({
 	selector: 'app-sidenav',
@@ -7,7 +8,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidenavComponent {
-	links: Array<any> = [
+	links: Array<ILink> = [
 		{
 			url: '',
 			title: 'All shows',
