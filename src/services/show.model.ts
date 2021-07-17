@@ -1,4 +1,5 @@
 import { IShow } from 'src/interfaces/show.interface';
+import { Review } from './review.model';
 
 export class Show {
 	title: string;
@@ -6,6 +7,7 @@ export class Show {
 	imageUrl: string;
 	description: string;
 	id: string;
+	reviews: Array<Review> | undefined;
 
 	constructor(showData: IShow) {
 		this.title = showData.title;
@@ -13,6 +15,7 @@ export class Show {
 		this.imageUrl = showData.image_url;
 		this.description = showData.description;
 		this.id = showData.id;
+		this.reviews = showData.reviews;
 	}
 
 	public get ratingPercentage(): number {
