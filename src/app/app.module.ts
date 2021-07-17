@@ -9,14 +9,17 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { MainLayoutComponent } from 'src/components/main-layout/main-layout.component';
 import { SidenavComponent } from 'src/components/sidenav/sidenav.component';
-import { AllShowsContainerComponent } from 'src/components/all-shows-container/all-shows-container.component';
+import { AllShowsContainerComponent } from 'src/pages/all-shows-container/all-shows-container.component';
 import { ShowListComponent } from 'src/components/show-list/show-list.component';
 import { ShowCardComponent } from 'src/components/show-card/show-card.component';
 import { RatingComponent } from 'src/components/rating/rating.component';
 import { AppRoutingModule } from './app-routing.module';
-import { TopShowsContainerComponent } from '../components/top-shows-container/top-shows-container.component';
-import { ShowDetailsContainerComponent } from '../components/show-details-container/show-details-container.component';
-import { ShowDetailsCardComponent } from '../components/show-details-container/components/show-details-card/show-details-card.component';
+import { ShowDetailsCardComponent } from 'src/pages/show-details-container/components/show-details-card/show-details-card.component';
+import { ShowDetailsContainerComponent } from 'src/pages/show-details-container/show-details-container.component';
+import { TopShowsContainerComponent } from 'src/pages/top-shows-container/top-shows-container.component';
+// import { TopShowsContainerComponent } from '../components/top-shows-container/top-shows-container.component';
+// import { ShowDetailsContainerComponent } from '../components/show-details-container/show-details-container.component';
+// import { ShowDetailsCardComponent } from '../components/show-details-container/components/show-details-card/show-details-card.component';
 
 @NgModule({
 	declarations: [
