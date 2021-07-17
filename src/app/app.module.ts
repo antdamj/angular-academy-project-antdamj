@@ -17,9 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ShowDetailsCardComponent } from 'src/pages/show-details-container/components/show-details-card/show-details-card.component';
 import { ShowDetailsContainerComponent } from 'src/pages/show-details-container/show-details-container.component';
 import { TopShowsContainerComponent } from 'src/pages/top-shows-container/top-shows-container.component';
-// import { TopShowsContainerComponent } from '../components/top-shows-container/top-shows-container.component';
-// import { ShowDetailsContainerComponent } from '../components/show-details-container/show-details-container.component';
-// import { ShowDetailsCardComponent } from '../components/show-details-container/components/show-details-card/show-details-card.component';
+import { ShowReviewComponent } from 'src/pages/show-details-container/components/show-details-card/components/show-review/show-review.component';
+import { ShowReviewsContainerComponent } from 'src/pages/show-details-container/components/show-details-card/pages/show-reviews-container/show-reviews-container.component';
 
 @NgModule({
 	declarations: [
@@ -34,6 +33,8 @@ import { TopShowsContainerComponent } from 'src/pages/top-shows-container/top-sh
 		TopShowsContainerComponent,
 		ShowDetailsContainerComponent,
 		ShowDetailsCardComponent,
+		ShowReviewsContainerComponent,
+		ShowReviewComponent,
 	],
 	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, MatIconModule, AppRoutingModule],
 	providers: [],

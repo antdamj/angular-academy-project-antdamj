@@ -1,0 +1,8 @@
+<ng-container *ngIf="reviews" ; else elseBlock>
+	<ng-container *ngFor="let review of reviews">
+		<app-show-review [review]="review"></app-show-review>
+	</ng-container>
+</ng-container>
+<ng-template #elseBlock>
+	<p>This show has not yet received any reviews.</p>
+</ng-template>
