@@ -1,7 +1,7 @@
 export interface IShow {
 	title: string;
 	id: string;
-	averageRating: number;
-	imageUrl: string;
+	average_rating: number;
+	image_url: string;
 	description: string;
 }

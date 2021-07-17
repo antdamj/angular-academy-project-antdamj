@@ -9,8 +9,8 @@ export class Show {
 
 	constructor(showData: IShow) {
 		this.title = showData.title;
-		this.averageRating = showData.averageRating;
-		this.imageUrl = showData.imageUrl;
+		this.averageRating = showData.average_rating;
+		this.imageUrl = showData.image_url;
 		this.description = showData.description;
 		this.id = showData.id;
 	}
