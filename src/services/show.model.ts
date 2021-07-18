@@ -21,4 +21,10 @@ export class Show {
 	public get ratingPercentage(): number {
 		return (100 * this.averageRating) / 5;
 	}
+
+	public calculateAverage(): number {
+		return this.reviews !== undefined
+			? this.reviews.map((e) => e.rating).reduce((a, b) => a + b, 0) / this.reviews.length
+			: 0;
+	}
 }
