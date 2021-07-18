@@ -53,7 +53,7 @@ export class ShowService {
 	}
 
 	public get topRated(): Array<Show> {
-		return this.shows.filter((show: Show) => show.calculateAverage() >= 4.0);
+		return this.shows.filter((show: Show) => show.average_rating >= 4.0);
 	}
 
 	public getshowById(id: String): Show | undefined {
