@@ -1,10 +1,10 @@
 <mat-card class="post-detail-container">
-	<img [src]="show.imageUrl" />
+	<img [src]="show.image_url" />
 	<div class="post-detail">
 		<div>
 			<h3>{{ show.title }}</h3>
 			<p>
-				Upvotes: <span>{{ show.averageRating }}</span>
+				Average rating: <span>{{ show.calculateAverage() }}</span>
 			</p>
 		</div>
 		<p>{{ show.description }}</p>
