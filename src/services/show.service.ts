@@ -51,7 +51,13 @@ export class ShowService {
 	];
 
 	public get shows(): Observable<Array<Show>> {
-		return of(this.rawData.map((s) => new Show(s))).pipe(delay(1000 + Math.random() * 1000));
+		let err = Math.random();
+		console.log('Getter called.', err);
+		if (err < 0.5) {
+			return of([]);
+		} else {
+			return of(this.rawData.map((s) => new Show(s))).pipe(delay(1000 + Math.random() * 1000));
+		}
 	}
 
 	public get topRated(): Observable<Array<Show>> {

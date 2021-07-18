@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MainLayoutComponent } from 'src/components/main-layout/main-layout.component';
 import { SidenavComponent } from 'src/components/sidenav/sidenav.component';
@@ -36,7 +37,15 @@ import { ShowReviewsContainerComponent } from 'src/pages/show-details-container/
 		ShowReviewsContainerComponent,
 		ShowReviewComponent,
 	],
-	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, MatIconModule, AppRoutingModule],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		MatCardModule,
+		MatSidenavModule,
+		MatIconModule,
+		AppRoutingModule,
+		MatProgressSpinnerModule,
+	],
 	providers: [],
 	bootstrap: [AppComponent],
 })

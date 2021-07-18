@@ -14,12 +14,21 @@ export class ShowDetailsContainerComponent implements OnInit {
 	constructor(private route: ActivatedRoute, private showService: ShowService) {}
 
 	public show$: Observable<Show | undefined>;
+	public errorOccurred: boolean = false;
 
 	ngOnInit(): void {
 		const id: string | null = this.route.snapshot.paramMap.get('id');
 
 		if (id) {
 			this.show$ = this.showService.getshowById(id);
+			this.show$?.subscribe((response) => {
+				if (response == undefined) {
+					console.log('Error with data fetch.');
+					this.errorOccurred = true;
+				} else {
+					console.log('Data successfully fetched.', response);
+				}
+			});
 		}
 	}
 }
