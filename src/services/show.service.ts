@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { merge, Observable, of } from 'rxjs';
 import { IShow } from 'src/interfaces/show.interface';
 import { Show } from './show.model';
+import { delay, filter, map } from 'rxjs/operators';
 
 @Injectable({
 	providedIn: 'root',
@@ -48,15 +50,17 @@ export class ShowService {
 		},
 	];
 
-	public get shows(): Array<Show> {
-		return this.rawData.map((s) => new Show(s));
+	public get shows(): Observable<Array<Show>> {
+		return of(this.rawData.map((s) => new Show(s))).pipe(delay(1000 + Math.random() * 1000));
 	}
 
-	public get topRated(): Array<Show> {
-		return this.shows.filter((show: Show) => show.average_rating >= 4.0);
+	public get topRated(): Observable<Array<Show>> {
+		// question
+		return this.shows.pipe(map((shows) => shows.filter((show) => show.average_rating > 4.0)));
 	}
 
-	public getshowById(id: String): Show | undefined {
-		return this.shows.find((show: Show) => show.id === id);
+	public getshowById(id: String): Observable<Show | undefined> {
+		// question
+		return this.shows.pipe(map((shows) => shows.find((show) => show.id === id)));
 	}
 }

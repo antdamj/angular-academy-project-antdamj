@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Show } from 'src/services/show.model';
 import { ShowService } from 'src/services/show.service';
 
@@ -8,12 +9,8 @@ import { ShowService } from 'src/services/show.service';
 	styleUrls: ['./top-shows-container.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TopShowsContainerComponent implements OnInit {
-	public shows: Array<Show>;
-
+export class TopShowsContainerComponent {
 	constructor(private showService: ShowService) {}
 
-	ngOnInit(): void {
-		this.shows = this.showService.topRated;
-	}
+	public shows$: Observable<Array<Show>> = this.showService.topRated;
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Show } from 'src/services/show.model';
 import { ShowService } from 'src/services/show.service';
 
@@ -12,13 +13,13 @@ import { ShowService } from 'src/services/show.service';
 export class ShowDetailsContainerComponent implements OnInit {
 	constructor(private route: ActivatedRoute, private showService: ShowService) {}
 
-	public show: Show | undefined;
+	public show$: Observable<Show | undefined>;
 
 	ngOnInit(): void {
 		const id: string | null = this.route.snapshot.paramMap.get('id');
 
 		if (id) {
-			this.show = this.showService.getshowById(id);
+			this.show$ = this.showService.getshowById(id);
 		}
 	}
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { flatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { Show } from 'src/services/show.model';
 import { ShowService } from 'src/services/show.service';
 
@@ -8,12 +10,8 @@ import { ShowService } from 'src/services/show.service';
 	styleUrls: ['./all-shows-container.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AllShowsContainerComponent implements OnInit {
-	public shows: Array<Show> | undefined;
-
+export class AllShowsContainerComponent {
 	constructor(private showService: ShowService) {}
 
-	ngOnInit(): void {
-		this.shows = this.showService.shows;
-	}
+	public shows$: Observable<Array<Show>> = this.showService.shows;
 }

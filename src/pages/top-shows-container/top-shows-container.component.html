@@ -1,1 +1,4 @@
-<app-show-list [shows]="shows"></app-show-list>
+<!-- question -->
+<ng-container *ngIf="shows$ | async as shows">
+	<app-show-list [shows]="shows"></app-show-list>
+</ng-container>
