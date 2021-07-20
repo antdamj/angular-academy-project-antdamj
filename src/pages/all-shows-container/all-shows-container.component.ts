@@ -1,6 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { flatMap, map, mergeMap, repeat, switchMap } from 'rxjs/operators';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { Show } from 'src/services/show.model';
 import { ShowService } from 'src/services/show.service';
 
@@ -10,27 +10,19 @@ import { ShowService } from 'src/services/show.service';
 	styleUrls: ['./all-shows-container.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AllShowsContainerComponent implements OnInit {
+export class AllShowsContainerComponent {
 	constructor(private showService: ShowService) {}
+	public errorOccurred$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-	public shows$: Observable<Array<Show>> | undefined = this.showService.shows;
-	public errorOccurred: boolean = false;
+	public shows$: Observable<Array<Show> | null> = this.showService.getShows().pipe(
+		map((shows) => {
+			return shows;
+		}),
+		catchError(() => {
+			this.errorOccurred$.next(true);
+			return of(null);
+		})
+	);
 
-	ngOnInit() {
-		this.shows$?.subscribe((response) => {
-			if (response.length === 0) {
-				console.log('Error with first data fetch.');
-				this.shows$ = of([]);
-				this.shows$ = this.showService.shows;
-				this.shows$.subscribe((res2) => {
-					if (res2.length === 0) {
-						console.log('Error with second data fetch.');
-					}
-					this.errorOccurred = true;
-				});
-			} else {
-				console.log('Data successfully fetched.', response);
-			}
-		});
-	}
+	ngOnInit() {}
 }

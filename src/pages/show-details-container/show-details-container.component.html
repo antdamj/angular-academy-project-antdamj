@@ -1,11 +1,5 @@
-<ng-container *ngIf="!errorOccurred; else error">
-	<ng-container *ngIf="show$ | async as show; else loading">
-		<app-show-details-card [show]="show"></app-show-details-card>
+<ng-container *ngIf="templateData$ | async as templateData">
+	<ng-container *ngIf="templateData.show != undefined">
+		<app-show-details-card [show]="templateData.show" [reviews]="templateData.reviews"></app-show-details-card>
 	</ng-container>
-	<ng-template #loading>
-		<mat-spinner></mat-spinner>
-	</ng-template>
 </ng-container>
-<ng-template #error>
-	<p>An error occurred.</p>
-</ng-template>

@@ -5,5 +5,4 @@ export interface IShow {
 	id: string;
 	image_url: string;
 	description: string;
-	reviews?: Array<Review>;
 }

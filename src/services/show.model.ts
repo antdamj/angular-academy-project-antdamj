@@ -13,7 +13,6 @@ export class Show {
 		this.image_url = showData.image_url;
 		this.description = showData.description;
 		this.id = showData.id;
-		this.reviews = showData.reviews;
 	}
 
 	public get ratingPercentage(): number {

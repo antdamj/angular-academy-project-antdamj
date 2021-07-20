@@ -1,8 +1,16 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Review } from 'src/services/review.model';
+import { ReviewService } from 'src/services/review.service';
 import { Show } from 'src/services/show.model';
 import { ShowService } from 'src/services/show.service';
+
+interface ITemplate {
+	show: Show | undefined;
+	reviews: Array<Review>;
+}
 
 @Component({
 	selector: 'app-show-details-container',
@@ -11,24 +19,26 @@ import { ShowService } from 'src/services/show.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShowDetailsContainerComponent implements OnInit {
-	constructor(private route: ActivatedRoute, private showService: ShowService) {}
+	constructor(private route: ActivatedRoute, private showService: ShowService, private reviewService: ReviewService) {}
 
-	public show$: Observable<Show | undefined>;
-	public errorOccurred: boolean = false;
+	public templateData$: Observable<ITemplate>;
 
 	ngOnInit(): void {
 		const id: string | null = this.route.snapshot.paramMap.get('id');
+		console.log('Data id is', id);
 
 		if (id) {
-			this.show$ = this.showService.getshowById(id);
-			this.show$?.subscribe((response) => {
-				if (response == undefined) {
-					console.log('Error with data fetch.');
-					this.errorOccurred = true;
-				} else {
-					console.log('Data successfully fetched.', response);
-				}
-			});
+			this.templateData$ = combineLatest([
+				this.showService.getshowById(id),
+				this.reviewService.getReviewsByShow(id),
+			]).pipe(
+				map(([show, reviews]) => {
+					return {
+						show,
+						reviews,
+					};
+				})
+			);
 		}
 	}
 }
