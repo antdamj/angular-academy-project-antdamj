@@ -51,7 +51,7 @@ export class ReviewService {
 		return of(this.rawData);
 	}
 
-	public getReviewsByShow(show_id: string): Observable<Array<Review>> {
-		return this.getReviews().pipe(map((reviews: Array<Review>) => reviews.filter((r) => r.show_id === show_id)));
+	public getReviewsByShow(showId: string): Observable<Array<Review>> {
+		return this.getReviews().pipe(map((reviews: Array<Review>) => reviews.filter((r) => r.show_id === showId)));
 	}
 }
