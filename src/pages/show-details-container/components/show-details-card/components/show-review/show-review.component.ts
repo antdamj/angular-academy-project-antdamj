@@ -7,10 +7,6 @@ import { Review } from 'src/services/review.model';
 	styleUrls: ['./show-review.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ShowReviewComponent implements OnInit {
-	constructor() {}
-
-	ngOnInit(): void {}
-
+export class ShowReviewComponent {
 	@Input() review: Review | undefined;
 }

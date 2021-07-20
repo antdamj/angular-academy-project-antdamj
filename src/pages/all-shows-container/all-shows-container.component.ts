@@ -23,6 +23,4 @@ export class AllShowsContainerComponent {
 			return of(null);
 		})
 	);
-
-	ngOnInit() {}
 }
