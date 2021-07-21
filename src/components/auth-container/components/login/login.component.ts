@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { emailInPasswordValidator } from 'src/validators/email-in-password.validator';
 
 export interface ILoginData {
 	email: string;

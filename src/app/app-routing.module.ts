@@ -4,8 +4,8 @@ import { AllShowsContainerComponent } from 'src/pages/all-shows-container/all-sh
 import { MainLayoutComponent } from 'src/components/main-layout/main-layout.component';
 import { TopShowsContainerComponent } from 'src/pages/top-shows-container/top-shows-container.component';
 import { ShowDetailsContainerComponent } from 'src/pages/show-details-container/show-details-container.component';
-import { LoginComponent } from 'src/components/login/login.component';
-import { RegisterComponent } from 'src/components/register/register.component';
+import { LoginComponent } from 'src/components/auth-container/components/login/login.component';
+import { RegisterComponent } from 'src/components/auth-container/components/register/register.component';
 import { AuthenticationLayoutComponent } from 'src/components/authentication-layout/authentication-layout.component';
 
 const routes: Routes = [
