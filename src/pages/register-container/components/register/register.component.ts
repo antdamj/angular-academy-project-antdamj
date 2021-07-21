@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { emailInPasswordValidator } from 'src/validators/email-in-password.validator';
 import { matchingPasswords } from 'src/validators/matching-passwords.validator';
@@ -16,8 +16,10 @@ export interface IRegisterForm {
 	styleUrls: ['./register.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 	constructor(private fb: FormBuilder) {}
+
+	@Output() registerUser: EventEmitter<IRegisterForm> = new EventEmitter();
 
 	public registerFormGroup: FormGroup = this.fb.group(
 		{
@@ -30,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
 	public signupAction() {
 		console.log(this.registerFormGroup.value);
+		this.registerUser.emit(this.registerFormGroup.value);
+		this.registerFormGroup.reset();
 	}
-
-	ngOnInit(): void {}
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Output } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export interface ILoginData {
@@ -12,8 +12,10 @@ export interface ILoginData {
 	styleUrls: ['./login.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 	constructor(private fb: FormBuilder) {}
+
+	@Output() loginUser: EventEmitter<ILoginData> = new EventEmitter();
 
 	public loginFormGroup: FormGroup = this.fb.group({
 		email: ['', [Validators.required, Validators.email]],
@@ -22,9 +24,7 @@ export class LoginComponent implements OnInit {
 
 	public loginAction() {
 		console.log(this.loginFormGroup.value);
+		this.loginUser.emit(this.loginFormGroup.value);
+		this.loginFormGroup.reset();
 	}
-
-	// @Output() -- ime funkcije
-
-	ngOnInit(): void {}
 }
