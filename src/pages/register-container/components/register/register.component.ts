@@ -4,10 +4,10 @@ import { emailInPasswordValidator } from 'src/validators/email-in-password.valid
 import { matchingPasswords } from 'src/validators/matching-passwords.validator';
 import { passwordCharacters } from 'src/validators/password-characters.validator';
 
-export interface IRegisterForm {
+export interface IRegisterData {
 	username: string;
 	password: string;
-	confirm_password: string;
+	password_confirmation: string;
 }
 
 @Component({
@@ -19,13 +19,13 @@ export interface IRegisterForm {
 export class RegisterComponent {
 	constructor(private fb: FormBuilder) {}
 
-	@Output() registerUser: EventEmitter<IRegisterForm> = new EventEmitter();
+	@Output() registerUser: EventEmitter<IRegisterData> = new EventEmitter();
 
 	public registerFormGroup: FormGroup = this.fb.group(
 		{
 			email: ['', [Validators.required, Validators.email]],
 			password: ['', [(Validators.required, Validators.minLength(8)), passwordCharacters]],
-			confirm_password: ['', [Validators.required]],
+			password_confirmation: ['', [Validators.required]],
 		},
 		{ validator: [emailInPasswordValidator, matchingPasswords] }
 	);
