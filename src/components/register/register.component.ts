@@ -1,16 +1,26 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+export interface IRegisterForm {
+	username: string;
+	password: string;
+	passwordRepeat: string;
+}
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'app-register',
+	templateUrl: './register.component.html',
+	styleUrls: ['./register.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent implements OnInit {
+	constructor(private fb: FormBuilder) {}
 
-  constructor() { }
+	public registerFormGroup: FormGroup = this.fb.group({
+		email: [''], // TODO: add validators
+		password: [''],
+		passwordRepeat: [''],
+	});
 
-  ngOnInit(): void {
-  }
-
+	ngOnInit(): void {}
 }

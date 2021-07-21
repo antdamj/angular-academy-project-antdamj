@@ -1,1 +1,24 @@
-<p>register works!</p>
+<mat-card>
+	<form [formGroup]="registerFormGroup">
+		<mat-form-field>
+			<!-- email -->
+			<mat-label>E-mail:</mat-label>
+			<input matInput formControlName="email" />
+			<mat-icon matPrefix>person</mat-icon>
+		</mat-form-field>
+
+		<mat-form-field>
+			<!-- password -->
+			<mat-label>Password:</mat-label>
+			<input matInput type="password" formControlName="password" />
+			<mat-icon matPrefix>lock</mat-icon>
+		</mat-form-field>
+
+		<mat-form-field>
+			<!-- password -->
+			<mat-label>Password repeat:</mat-label>
+			<input matInput type="password" formControlName="password-repeat" />
+			<mat-icon matPrefix>lock</mat-icon>
+		</mat-form-field>
+	</form>
+</mat-card>
