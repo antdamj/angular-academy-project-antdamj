@@ -3,15 +3,19 @@
 		<mat-form-field>
 			<!-- email -->
 			<mat-label>E-mail</mat-label>
-			<input matInput formControlName="email" />
+			<input matInput type="email" formControlName="email" />
 			<mat-icon matPrefix>person</mat-icon>
+			<mat-error *ngIf="loginFormGroup.get('email')?.errors?.required">Email is required.</mat-error>
+			<!-- <mat-error *ngIf="loginFormGroup.get('email')?.errors?.email">Invalid email.</mat-error> -->
 		</mat-form-field>
 
 		<mat-form-field>
-			<!-- password -->
 			<mat-label>Password</mat-label>
 			<input matInput type="password" formControlName="password" />
 			<mat-icon matPrefix>lock</mat-icon>
+			<mat-error *ngIf="loginFormGroup.get('password')?.errors?.required">Password is required.</mat-error>
 		</mat-form-field>
+
+		<button mat-button (click)="loginAction()" [disabled]="loginFormGroup.invalid">Login</button>
 	</form>
 </mat-card>

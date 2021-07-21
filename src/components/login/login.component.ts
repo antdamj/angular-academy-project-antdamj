@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { emailInPasswordValidator } from 'src/validators/email-in-password.validator';
 
 export interface ILoginData {
 	email: string;
@@ -16,11 +17,15 @@ export class LoginComponent implements OnInit {
 	constructor(private fb: FormBuilder) {}
 
 	public loginFormGroup: FormGroup = this.fb.group({
-		email: [''], // TODO: add validators
-		password: [''],
+		email: ['', [Validators.required, Validators.email]],
+		password: ['', [Validators.required, Validators.minLength(8)]],
 	});
 
-	// @Output()
+	public loginAction() {
+		console.log(this.loginFormGroup.value);
+	}
+
+	// @Output() -- ime funkcije
 
 	ngOnInit(): void {}
 }
