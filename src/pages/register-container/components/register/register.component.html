@@ -26,7 +26,7 @@
 		<mat-form-field>
 			<!-- password repeat -->
 			<mat-label>Confirm password</mat-label>
-			<input matInput type="password" formControlName="confirm_password" />
+			<input matInput type="password" formControlName="password_confirmation" />
 			<mat-icon matPrefix>lock</mat-icon>
 			<mat-error *ngIf="registerFormGroup.get('email')?.errors?.required">Please type your password again.</mat-error>
 		</mat-form-field>
@@ -39,5 +39,7 @@
 		</mat-error>
 
 		<button mat-raised-button (click)="signupAction()" [disabled]="registerFormGroup.invalid">Sign up</button>
+
+		<p>Already have an account? <a href="/login">Login</a> here.</p>
 	</form>
 </mat-card>
