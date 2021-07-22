@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -63,6 +64,7 @@ import { RegisterContainerComponent } from 'src/pages/register-container/registe
 		ReactiveFormsModule,
 		MatButtonModule,
 		HttpClientModule,
+		MatProgressBarModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

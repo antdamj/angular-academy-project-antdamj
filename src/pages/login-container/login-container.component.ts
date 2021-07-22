@@ -1,6 +1,7 @@
-import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 import { AuthService } from 'src/services/auth.service';
 import { ILoginData } from './components/login/login.component';
 
@@ -13,11 +14,20 @@ import { ILoginData } from './components/login/login.component';
 export class LoginContainerComponent {
 	constructor(private router: Router, private authService: AuthService) {}
 
+	public loading$: Subject<boolean> = new Subject<boolean>();
+
 	public onUserLogin(data: ILoginData): void {
-		// console.log('in component:', data);
-		this.authService.loginUser(data).subscribe((response) => {
-			console.log('Server response:', response);
-			this.router.navigate(['']);
-		});
+		this.loading$.next(true);
+		this.authService
+			.loginUser(data)
+			.pipe(
+				finalize(() => {
+					this.loading$.next(false);
+				})
+			)
+			.subscribe((response) => {
+				console.log('Server response:', response);
+				this.router.navigate(['']);
+			});
 	}
 }
