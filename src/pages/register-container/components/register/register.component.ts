@@ -1,8 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { emailInPasswordValidator } from 'src/validators/email-in-password.validator';
 import { matchingPasswords } from 'src/validators/matching-passwords.validator';
 import { passwordCharacters } from 'src/validators/password-characters.validator';
+import { validEmail } from 'src/validators/valid-email.validator';
 
 export interface IRegisterData {
 	username: string;
@@ -23,7 +24,7 @@ export class RegisterComponent {
 
 	public registerFormGroup: FormGroup = this.fb.group(
 		{
-			email: ['', [Validators.required, Validators.email]],
+			email: ['', [Validators.required, validEmail]],
 			password: ['', [(Validators.required, Validators.minLength(8)), passwordCharacters]],
 			password_confirmation: ['', [Validators.required]],
 		},

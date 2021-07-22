@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ILoginData } from 'src/pages/login-container/components/login/login.component';
 import { IRegisterData } from 'src/pages/register-container/components/register/register.component';
 
@@ -11,7 +11,6 @@ export class AuthService {
 	constructor(private http: HttpClient) {}
 
 	public registerUser(data: IRegisterData): Observable<IRegisterData> {
-		// make registration req
 		console.log('Na server ide:', data);
 		return this.http.post<IRegisterData>(' https://tv-shows.infinum.academy/users', data);
 	}
