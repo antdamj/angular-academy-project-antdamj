@@ -19,7 +19,7 @@ import { ShowDetailsCardComponent } from 'src/pages/show-details-container/compo
 import { ShowDetailsContainerComponent } from 'src/pages/show-details-container/show-details-container.component';
 import { TopShowsContainerComponent } from 'src/pages/top-shows-container/top-shows-container.component';
 import { ShowReviewComponent } from 'src/pages/show-details-container/components/show-details-card/components/show-review/show-review.component';
-import { ShowReviewsContainerComponent } from 'src/pages/show-details-container/components/show-details-card/pages/show-reviews-container/show-reviews-container.component';
+import { ShowReviewListComponent } from '../pages/show-details-container/components/show-details-card/components/show-review-list/show-review-list.component';
 
 @NgModule({
 	declarations: [
@@ -34,8 +34,8 @@ import { ShowReviewsContainerComponent } from 'src/pages/show-details-container/
 		TopShowsContainerComponent,
 		ShowDetailsContainerComponent,
 		ShowDetailsCardComponent,
-		ShowReviewsContainerComponent,
 		ShowReviewComponent,
+		ShowReviewListComponent,
 	],
 	imports: [
 		BrowserModule,

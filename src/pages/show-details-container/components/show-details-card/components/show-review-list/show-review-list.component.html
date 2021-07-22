@@ -1,4 +1,4 @@
-<ng-container *ngIf="reviews; else noReviews">
+<ng-container *ngIf="reviews.length; else noReviews">
 	<ng-container *ngFor="let review of reviews">
 		<app-show-review [review]="review"></app-show-review>
 	</ng-container>
