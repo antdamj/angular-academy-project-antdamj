@@ -3,7 +3,7 @@
 		<mat-form-field appearance="outline">
 			<!-- email -->
 			<mat-label>E-mail</mat-label>
-			<input matInput type="email" formControlName="email" />
+			<input matInput type="email" formControlName="email" autofocus />
 			<mat-icon matPrefix>person</mat-icon>
 			<mat-error *ngIf="loginFormGroup.get('email')?.errors?.required">Email is required.</mat-error>
 			<!-- <mat-error *ngIf="loginFormGroup.get('email')?.errors?.email">Invalid email.</mat-error> -->

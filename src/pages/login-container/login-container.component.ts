@@ -1,7 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { of, Subject } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
 import { AuthService } from 'src/services/auth.service';
 import { ILoginData } from './components/login/login.component';
 
@@ -12,7 +13,9 @@ import { ILoginData } from './components/login/login.component';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginContainerComponent {
-	constructor(private router: Router, private authService: AuthService) {}
+	constructor(private router: Router, private authService: AuthService, public snackBar: MatSnackBar) {}
+
+	private errorMessage: string;
 
 	public loading$: Subject<boolean> = new Subject<boolean>();
 
@@ -23,11 +26,19 @@ export class LoginContainerComponent {
 			.pipe(
 				finalize(() => {
 					this.loading$.next(false);
+				}),
+				catchError((err) => {
+					this.errorMessage = err.error.errors[0]; // error message from server response
+					return of({ undefined });
 				})
 			)
 			.subscribe((response) => {
-				console.log('Server response:', response);
-				this.router.navigate(['']);
+				if (!('undefined' in response)) {
+					console.log('Server response:', response);
+					this.router.navigate(['']);
+				} else {
+					this.snackBar.open(this.errorMessage, 'OK');
+				}
 			});
 	}
 }

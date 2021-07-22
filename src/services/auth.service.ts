@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject, Subscription } from 'rxjs';
 import { ILoginData } from 'src/pages/login-container/components/login/login.component';
 import { IRegisterData } from 'src/pages/register-container/components/register/register.component';
 
