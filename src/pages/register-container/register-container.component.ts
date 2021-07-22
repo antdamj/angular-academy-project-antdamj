@@ -15,6 +15,9 @@ export class RegisterContainerComponent implements OnInit {
 	ngOnInit(): void {}
 
 	public onUserSignup(data: IRegisterData): void {
-		this.authService.registerUser(data).subscribe(() => this.router.navigate(['']));
+		this.authService.registerUser(data).subscribe((response) => {
+			console.log('Server response:', response);
+			this.router.navigate(['']);
+		});
 	}
 }

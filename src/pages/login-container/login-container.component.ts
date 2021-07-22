@@ -15,6 +15,9 @@ export class LoginContainerComponent {
 
 	public onUserLogin(data: ILoginData): void {
 		// console.log('in component:', data);
-		this.authService.loginUser(data).subscribe(() => this.router.navigate(['']));
+		this.authService.loginUser(data).subscribe((response) => {
+			console.log('Server response:', response);
+			this.router.navigate(['']);
+		});
 	}
 }
