@@ -1,6 +1,6 @@
 <mat-card>
 	<form [formGroup]="registerFormGroup">
-		<mat-form-field>
+		<mat-form-field appearance="outline">
 			<!-- email -->
 			<mat-label>E-mail:</mat-label>
 			<input matInput formControlName="email" />
@@ -9,7 +9,7 @@
 			<mat-error *ngIf="registerFormGroup.get('email')?.errors?.invalidEmail">Email must be valid.</mat-error>
 		</mat-form-field>
 
-		<mat-form-field>
+		<mat-form-field appearance="outline">
 			<!-- password -->
 			<mat-label>Password:</mat-label>
 			<input matInput type="password" formControlName="password" />
@@ -23,7 +23,7 @@
 			</mat-error>
 		</mat-form-field>
 
-		<mat-form-field>
+		<mat-form-field appearance="outline">
 			<!-- password repeat -->
 			<mat-label>Confirm password</mat-label>
 			<input matInput type="password" formControlName="password_confirmation" />

@@ -1,6 +1,6 @@
 <mat-card>
 	<form [formGroup]="loginFormGroup">
-		<mat-form-field>
+		<mat-form-field appearance="outline">
 			<!-- email -->
 			<mat-label>E-mail</mat-label>
 			<input matInput type="email" formControlName="email" />
@@ -9,7 +9,7 @@
 			<!-- <mat-error *ngIf="loginFormGroup.get('email')?.errors?.email">Invalid email.</mat-error> -->
 		</mat-form-field>
 
-		<mat-form-field>
+		<mat-form-field appearance="outline">
 			<mat-label>Password</mat-label>
 			<input matInput type="password" formControlName="password" />
 			<mat-icon matPrefix>lock</mat-icon>
