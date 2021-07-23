@@ -1,0 +1,45 @@
+<mat-card>
+	<form [formGroup]="registerFormGroup">
+		<mat-form-field appearance="outline">
+			<!-- email -->
+			<mat-label>E-mail:</mat-label>
+			<input matInput formControlName="email" />
+			<mat-icon matPrefix>person</mat-icon>
+			<mat-error *ngIf="registerFormGroup.get('email')?.errors?.required">Email is required.</mat-error>
+			<mat-error *ngIf="registerFormGroup.get('email')?.errors?.invalidEmail">Email must be valid.</mat-error>
+		</mat-form-field>
+
+		<mat-form-field appearance="outline">
+			<!-- password -->
+			<mat-label>Password:</mat-label>
+			<input matInput type="password" formControlName="password" />
+			<mat-icon matPrefix>lock</mat-icon>
+			<mat-error *ngIf="registerFormGroup.get('password')?.errors?.required">Password is required.</mat-error>
+			<mat-error *ngIf="registerFormGroup.get('password')?.hasError('minlength')">
+				Password must be at least 8 characters long.
+			</mat-error>
+			<mat-error *ngIf="registerFormGroup.get('password')?.hasError('pattern')">
+				Password must contain at least one uppercase, one lowercase and a digit.
+			</mat-error>
+		</mat-form-field>
+
+		<mat-form-field appearance="outline">
+			<!-- password repeat -->
+			<mat-label>Confirm password</mat-label>
+			<input matInput type="password" formControlName="password_confirmation" />
+			<mat-icon matPrefix>lock</mat-icon>
+			<mat-error *ngIf="registerFormGroup.get('email')?.errors?.required">Please type your password again.</mat-error>
+		</mat-form-field>
+
+		<mat-error *ngIf="registerFormGroup.errors?.mailPasswordRepeat">
+			<span>Password can't match email!</span>
+		</mat-error>
+		<mat-error *ngIf="registerFormGroup.errors?.passwordMismatch">
+			<span>Passwords must match!</span>
+		</mat-error>
+
+		<button mat-raised-button (click)="signupAction()" [disabled]="registerFormGroup.invalid">Sign up</button>
+
+		<p>Already have an account? <a href="/login">Login</a> here.</p>
+	</form>
+</mat-card>

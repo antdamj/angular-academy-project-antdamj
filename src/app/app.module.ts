@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,7 +25,12 @@ import { ShowDetailsCardComponent } from 'src/pages/show-details-container/compo
 import { ShowDetailsContainerComponent } from 'src/pages/show-details-container/show-details-container.component';
 import { TopShowsContainerComponent } from 'src/pages/top-shows-container/top-shows-container.component';
 import { ShowReviewComponent } from 'src/pages/show-details-container/components/show-details-card/components/show-review/show-review.component';
-import { ShowReviewListComponent } from '../pages/show-details-container/components/show-details-card/components/show-review-list/show-review-list.component';
+import { AuthenticationLayoutComponent } from 'src/components/authentication-layout/authentication-layout.component';
+import { LoginComponent } from 'src/pages/login-container/components/login/login.component';
+import { RegisterComponent } from 'src/pages/register-container/components/register/register.component';
+import { LoginContainerComponent } from 'src/pages/login-container/login-container.component';
+import { RegisterContainerComponent } from 'src/pages/register-container/register-container.component';
+import { ShowReviewListComponent } from 'src/pages/show-details-container/components/show-details-card/components/show-review-list/show-review-list.component';
 
 @NgModule({
 	declarations: [
@@ -35,6 +46,11 @@ import { ShowReviewListComponent } from '../pages/show-details-container/compone
 		ShowDetailsContainerComponent,
 		ShowDetailsCardComponent,
 		ShowReviewComponent,
+		LoginComponent,
+		RegisterComponent,
+		AuthenticationLayoutComponent,
+		LoginContainerComponent,
+		RegisterContainerComponent,
 		ShowReviewListComponent,
 	],
 	imports: [
@@ -45,6 +61,12 @@ import { ShowReviewListComponent } from '../pages/show-details-container/compone
 		MatIconModule,
 		AppRoutingModule,
 		MatProgressSpinnerModule,
+		MatInputModule,
+		ReactiveFormsModule,
+		MatButtonModule,
+		HttpClientModule,
+		MatProgressBarModule,
+		MatSnackBarModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
