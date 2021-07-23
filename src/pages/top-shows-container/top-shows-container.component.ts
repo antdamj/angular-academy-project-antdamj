@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Show } from 'src/services/show.model';
-import { ShowService } from 'src/services/show.service';
+import { Show } from 'src/app/services/show.model';
+import { ShowService } from 'src/app/services/show.service';
 
 @Component({
 	selector: 'app-top-shows-container',

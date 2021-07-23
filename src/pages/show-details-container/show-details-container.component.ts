@@ -2,10 +2,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Review } from 'src/services/review.model';
-import { ReviewService } from 'src/services/review.service';
-import { Show } from 'src/services/show.model';
-import { ShowService } from 'src/services/show.service';
+import { Review } from 'src/app/services/review.model';
+import { ReviewService } from 'src/app/services/review.service';
+import { Show } from 'src/app/services/show.model';
+import { ShowService } from 'src/app/services/show.service';
 
 interface ITemplate {
 	show: Show | undefined;

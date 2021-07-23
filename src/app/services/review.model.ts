@@ -1,4 +1,4 @@
-import { IReview } from 'src/interfaces/review.interface';
+import { IReview } from 'src/app/interfaces/review.interface';
 
 export class Review {
 	rating: number;

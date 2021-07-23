@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { validEmail } from 'src/validators/valid-email.validator';
+import { validEmail } from 'src/app/validators/valid-email.validator';
 
 export interface ILoginData {
 	email: string;

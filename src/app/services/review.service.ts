@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IReview } from 'src/interfaces/review.interface';
+import { IReview } from 'src/app/interfaces/review.interface';
 import { Review } from './review.model';
 
 @Injectable({

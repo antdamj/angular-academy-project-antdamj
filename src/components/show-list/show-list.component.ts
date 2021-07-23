@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Review } from 'src/services/review.model';
-import { Show } from 'src/services/show.model';
+import { Review } from 'src/app/services/review.model';
+import { Show } from 'src/app/services/show.model';
 
 @Component({
 	selector: 'app-show-list',

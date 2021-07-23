@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { emailInPasswordValidator } from 'src/validators/email-in-password.validator';
-import { matchingPasswords } from 'src/validators/matching-passwords.validator';
-import { validEmail } from 'src/validators/valid-email.validator';
+import { emailInPasswordValidator } from 'src/app/validators/email-in-password.validator';
+import { matchingPasswords } from 'src/app/validators/matching-passwords.validator';
+import { validEmail } from 'src/app/validators/valid-email.validator';
 
 export interface IRegisterData {
 	username: string;

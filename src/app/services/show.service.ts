@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { merge, Observable, of } from 'rxjs';
-import { IShow } from 'src/interfaces/show.interface';
+import { IShow } from 'src/app/interfaces/show.interface';
 import { Show } from './show.model';
 import { delay, filter, map } from 'rxjs/operators';
 

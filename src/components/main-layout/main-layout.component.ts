@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Show } from 'src/services/show.model';
+import { Show } from 'src/app/services/show.model';
 
 @Component({
 	selector: 'app-main-layout',

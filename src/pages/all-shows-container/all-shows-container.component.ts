@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Show } from 'src/services/show.model';
-import { ShowService } from 'src/services/show.service';
+import { Show } from 'src/app/services/show.model';
+import { ShowService } from 'src/app/services/show.service';
 
 @Component({
 	selector: 'app-all-shows-container',

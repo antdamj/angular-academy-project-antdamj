@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ILink } from 'src/interfaces/link.interface';
+import { ILink } from 'src/app/interfaces/link.interface';
 
 @Component({
 	selector: 'app-sidenav',

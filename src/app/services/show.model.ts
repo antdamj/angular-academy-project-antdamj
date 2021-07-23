@@ -1,4 +1,4 @@
-import { IShow } from 'src/interfaces/show.interface';
+import { IShow } from 'src/app/interfaces/show.interface';
 import { Review } from './review.model';
 
 export class Show {

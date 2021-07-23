@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Review } from 'src/services/review.model';
+import { Review } from 'src/app/services/review.model';
 
 @Component({
 	selector: 'app-show-review',
