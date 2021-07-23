@@ -25,12 +25,12 @@ import { ShowDetailsCardComponent } from 'src/pages/show-details-container/compo
 import { ShowDetailsContainerComponent } from 'src/pages/show-details-container/show-details-container.component';
 import { TopShowsContainerComponent } from 'src/pages/top-shows-container/top-shows-container.component';
 import { ShowReviewComponent } from 'src/pages/show-details-container/components/show-details-card/components/show-review/show-review.component';
-// import { ShowReviewsContainerComponent } from 'src/pages/show-details-container/components/show-details-card/pages/show-reviews-container/show-reviews-container.component';
 import { AuthenticationLayoutComponent } from 'src/components/authentication-layout/authentication-layout.component';
 import { LoginComponent } from 'src/pages/login-container/components/login/login.component';
 import { RegisterComponent } from 'src/pages/register-container/components/register/register.component';
 import { LoginContainerComponent } from 'src/pages/login-container/login-container.component';
 import { RegisterContainerComponent } from 'src/pages/register-container/register-container.component';
+import { ShowReviewListComponent } from 'src/pages/show-details-container/components/show-details-card/components/show-review-list/show-review-list.component';
 
 @NgModule({
 	declarations: [
@@ -51,6 +51,7 @@ import { RegisterContainerComponent } from 'src/pages/register-container/registe
 		AuthenticationLayoutComponent,
 		LoginContainerComponent,
 		RegisterContainerComponent,
+		ShowReviewListComponent,
 	],
 	imports: [
 		BrowserModule,
