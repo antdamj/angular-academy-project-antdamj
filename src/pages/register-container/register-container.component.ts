@@ -12,9 +12,9 @@ import { IRegisterData } from './components/register/register.component';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterContainerComponent {
-	constructor(private authService: AuthService, private router: Router) {}
-
 	public loading$: Subject<boolean> = new Subject<boolean>();
+
+	constructor(private authService: AuthService, private router: Router) {}
 
 	public onUserSignup(data: IRegisterData): void {
 		this.authService

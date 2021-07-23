@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { validEmail } from 'src/validators/valid-email.validator';
 
 export interface ILoginData {
 	email: string;
@@ -18,7 +19,7 @@ export class LoginComponent {
 	@Output() loginUser: EventEmitter<ILoginData> = new EventEmitter();
 
 	public loginFormGroup: FormGroup = this.fb.group({
-		email: ['', [Validators.required, Validators.email]],
+		email: ['', [Validators.required, validEmail]],
 		password: ['', [Validators.required, Validators.minLength(8)]],
 	});
 
