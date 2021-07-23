@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -11,12 +11,10 @@ import { IRegisterData } from './components/register/register.component';
 	styleUrls: ['./register-container.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RegisterContainerComponent implements OnInit {
+export class RegisterContainerComponent {
 	constructor(private authService: AuthService, private router: Router) {}
 
 	public loading$: Subject<boolean> = new Subject<boolean>();
-
-	ngOnInit(): void {}
 
 	public onUserSignup(data: IRegisterData): void {
 		this.authService
