@@ -1,0 +1,5 @@
+<ng-container *ngIf="shows$ | async as shows">
+	<app-show-list [shows]="shows"> </app-show-list>
+</ng-container>
+
+<ng-container *ngIf="errorOccurred$ | async as errorOccurred"> error. </ng-container>
