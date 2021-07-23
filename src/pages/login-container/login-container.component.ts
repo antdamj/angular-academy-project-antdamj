@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { of, Subject } from 'rxjs';
+import { of, Subject, throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 import { AuthService } from 'src/services/auth.service';
 import { ILoginData } from './components/login/login.component';
@@ -15,8 +15,6 @@ import { ILoginData } from './components/login/login.component';
 export class LoginContainerComponent {
 	constructor(private router: Router, private authService: AuthService, public snackBar: MatSnackBar) {}
 
-	private errorMessage: string;
-
 	public loading$: Subject<boolean> = new Subject<boolean>();
 
 	public onUserLogin(data: ILoginData): void {
@@ -28,17 +26,13 @@ export class LoginContainerComponent {
 					this.loading$.next(false);
 				}),
 				catchError((err) => {
-					this.errorMessage = err.error.errors[0]; // error message from server response
-					return of({ undefined });
+					this.snackBar.open(err.error.errors[0], 'OK');
+					return throwError('Error!');
 				})
 			)
 			.subscribe((response) => {
-				if (!('undefined' in response)) {
-					console.log('Server response:', response);
-					this.router.navigate(['']);
-				} else {
-					this.snackBar.open(this.errorMessage, 'OK');
-				}
+				console.log('Server response:', response);
+				this.router.navigate(['']);
 			});
 	}
 }
