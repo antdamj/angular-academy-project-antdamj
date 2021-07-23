@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject, Subscription } from 'rxjs';
-import { ILoginData } from 'src/pages/login-container/components/login/login.component';
-import { IRegisterData } from 'src/pages/register-container/components/register/register.component';
+import { ILoginData } from 'src/app/pages/login-container/components/login/login.component';
+import { IRegisterData } from 'src/app/pages/register-container/components/register/register.component';
 
 @Injectable({
 	providedIn: 'root',
