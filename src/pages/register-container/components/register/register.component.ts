@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angul
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { emailInPasswordValidator } from 'src/validators/email-in-password.validator';
 import { matchingPasswords } from 'src/validators/matching-passwords.validator';
-import { passwordCharacters } from 'src/validators/password-characters.validator';
 import { validEmail } from 'src/validators/valid-email.validator';
 
 export interface IRegisterData {
@@ -25,7 +24,13 @@ export class RegisterComponent {
 	public registerFormGroup: FormGroup = this.fb.group(
 		{
 			email: ['', [Validators.required, validEmail]],
-			password: ['', [(Validators.required, Validators.minLength(8)), passwordCharacters]],
+			password: [
+				'',
+				[
+					(Validators.required, Validators.minLength(8)),
+					Validators.pattern('(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).*'),
+				],
+			],
 			password_confirmation: ['', [Validators.required]],
 		},
 		{ validator: [emailInPasswordValidator, matchingPasswords] }
