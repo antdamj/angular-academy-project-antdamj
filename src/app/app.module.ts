@@ -25,7 +25,7 @@ import { ShowDetailsCardComponent } from 'src/pages/show-details-container/compo
 import { ShowDetailsContainerComponent } from 'src/pages/show-details-container/show-details-container.component';
 import { TopShowsContainerComponent } from 'src/pages/top-shows-container/top-shows-container.component';
 import { ShowReviewComponent } from 'src/pages/show-details-container/components/show-details-card/components/show-review/show-review.component';
-import { ShowReviewsContainerComponent } from 'src/pages/show-details-container/components/show-details-card/pages/show-reviews-container/show-reviews-container.component';
+// import { ShowReviewsContainerComponent } from 'src/pages/show-details-container/components/show-details-card/pages/show-reviews-container/show-reviews-container.component';
 import { AuthenticationLayoutComponent } from 'src/components/authentication-layout/authentication-layout.component';
 import { LoginComponent } from 'src/pages/login-container/components/login/login.component';
 import { RegisterComponent } from 'src/pages/register-container/components/register/register.component';
@@ -45,7 +45,6 @@ import { RegisterContainerComponent } from 'src/pages/register-container/registe
 		TopShowsContainerComponent,
 		ShowDetailsContainerComponent,
 		ShowDetailsCardComponent,
-		ShowReviewsContainerComponent,
 		ShowReviewComponent,
 		LoginComponent,
 		RegisterComponent,

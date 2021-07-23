@@ -5,4 +5,5 @@ export interface IShow {
 	id: string;
 	image_url: string;
 	description: string;
+	average_rating: number;
 }

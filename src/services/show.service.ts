@@ -14,12 +14,14 @@ export class ShowService {
 			id: '1',
 			image_url: 'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg',
 			description: 'Ovo je za prvu',
+			average_rating: 4.8,
 		},
 		{
 			title: 'Second show',
 			id: '2',
 			image_url: 'https://www.guidedogs.org/wp-content/uploads/2019/11/website-donate-mobile.jpg',
 			description: 'Druga',
+			average_rating: 4.2,
 		},
 		{
 			title: 'Third show',
@@ -27,6 +29,7 @@ export class ShowService {
 			image_url:
 				'https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2021/02/GettyImages-997141470-e1614176377827.jpg',
 			description: 'Treci show',
+			average_rating: 3.9,
 		},
 	];
 
