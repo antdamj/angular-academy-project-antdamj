@@ -29,10 +29,11 @@ export class ShowDetailsContainerComponent implements OnInit {
 
 		if (id) {
 			this.templateData$ = combineLatest([
-				this.showService.getshowById(id),
-				this.reviewService.getReviewsByShow(id),
+				this.showService.getShowById(id),
+				this.reviewService.getReviewsForShow(id),
 			]).pipe(
 				map(([show, reviews]) => {
+					console.log(show);
 					return {
 						show,
 						reviews,

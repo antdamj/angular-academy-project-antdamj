@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -31,6 +31,7 @@ import { RegisterContainerComponent } from './pages/register-container/register-
 import { ShowReviewListComponent } from './pages/show-details-container/components/show-details-card/components/show-review-list/show-review-list.component';
 import { ShowDetailsCardComponent } from './pages/show-details-container/components/show-details-card/show-details-card.component';
 import { ShowDetailsContainerComponent } from './pages/show-details-container/show-details-container.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
 	declarations: [
@@ -68,7 +69,13 @@ import { ShowDetailsContainerComponent } from './pages/show-details-container/sh
 		MatProgressBarModule,
 		MatSnackBarModule,
 	],
-	providers: [],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthInterceptor,
+			multi: true,
+		},
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

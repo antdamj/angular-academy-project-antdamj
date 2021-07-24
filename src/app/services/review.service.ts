@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -8,50 +9,11 @@ import { Review } from './review.model';
 	providedIn: 'root',
 })
 export class ReviewService {
-	rawData: Array<IReview> = [
-		{
-			rating: 4.5,
-			comment: 'It was great',
-			id: '1',
-			show_id: '1',
-		},
-		{
-			rating: 4.7,
-			comment: 'Awesome!',
-			id: '2',
-			show_id: '1',
-		},
-		{
-			rating: 5.0,
-			comment: 'Best show ever!',
-			id: '3',
-			show_id: '1',
-		},
-		{
-			rating: 4.0,
-			comment: 'Very good!',
-			id: '4',
-			show_id: '2',
-		},
-		{
-			rating: 4.5,
-			comment: 'It was great',
-			id: '5',
-			show_id: '2',
-		},
-		{
-			rating: 3.6,
-			comment: 'It was okay..',
-			id: '6',
-			show_id: '3',
-		},
-	];
+	constructor(private http: HttpClient) {}
 
-	public getReviews(): Observable<Array<Review>> {
-		return of(this.rawData);
-	}
-
-	public getReviewsByShow(showId: string): Observable<Array<Review>> {
-		return this.getReviews().pipe(map((reviews: Array<Review>) => reviews.filter((r) => r.show_id === showId)));
+	public getReviewsForShow(showId: string): Observable<Array<Review>> {
+		return this.http
+			.get<{ reviews: Array<Review> }>('https://tv-shows.infinum.academy/shows/' + showId + '/reviews')
+			.pipe(map((response) => response.reviews));
 	}
 }
