@@ -7,15 +7,18 @@ import { AuthenticationLayoutComponent } from 'src/app/components/authentication
 import { ShowDetailsContainerComponent } from './pages/show-details-container/show-details-container.component';
 import { LoginContainerComponent } from './pages/login-container/login-container.component';
 import { RegisterContainerComponent } from './pages/register-container/register-container.component';
+import { AppGuard } from './guards/app.guard';
 
 const routes: Routes = [
 	{
 		path: '',
 		component: MainLayoutComponent,
+		canActivate: [AppGuard],
 		children: [
 			{
 				path: '',
 				component: AllShowsContainerComponent,
+				canActivate: [AppGuard],
 			},
 			{
 				path: 'top-rated',
