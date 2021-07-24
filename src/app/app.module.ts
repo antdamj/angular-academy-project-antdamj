@@ -32,6 +32,8 @@ import { ShowReviewListComponent } from './pages/show-details-container/componen
 import { ShowDetailsCardComponent } from './pages/show-details-container/components/show-details-card/show-details-card.component';
 import { ShowDetailsContainerComponent } from './pages/show-details-container/show-details-container.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AddReviewContainerComponent } from './pages/add-review-container/add-review-container.component';
+import { AddReviewComponent } from './pages/add-review-container/components/add-review/add-review.component';
 
 @NgModule({
 	declarations: [
@@ -53,6 +55,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 		LoginContainerComponent,
 		RegisterContainerComponent,
 		ShowReviewListComponent,
+		ShowReviewComponent,
+		AddReviewContainerComponent,
+		AddReviewComponent,
 	],
 	imports: [
 		BrowserModule,

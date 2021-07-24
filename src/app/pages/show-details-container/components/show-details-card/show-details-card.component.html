@@ -8,6 +8,7 @@
 			</p>
 		</div>
 		<p>{{ show.description }}</p>
+		<app-add-review-container [showId]="show.id"></app-add-review-container>
 		<app-show-review-list [reviews]="reviews"></app-show-review-list>
 	</div>
 </mat-card>

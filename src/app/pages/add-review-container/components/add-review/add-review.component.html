@@ -1,0 +1,19 @@
+<mat-card>
+	<form [formGroup]="addReviewFormGroup">
+		<mat-form-field appearance="outline">
+			<mat-label>Rating</mat-label>
+			<input matInput type="number" min="1" max="5" value="5" formControlName="rating" />
+			<mat-icon matPrefix>grade</mat-icon>
+			<mat-error *ngIf="addReviewFormGroup.get('rating')?.errors?.required">A rating is required.</mat-error>
+		</mat-form-field>
+
+		<mat-form-field appearance="outline">
+			<mat-label>Comment</mat-label>
+			<input matInput type="text" formControlName="comment" />
+			<mat-icon matPrefix>chat_bubble_outline</mat-icon>
+			<mat-error *ngIf="addReviewFormGroup.get('comment')?.errors?.required">A comment is required.</mat-error>
+		</mat-form-field>
+
+		<button mat-raised-button (click)="onAddReview()" [disabled]="addReviewFormGroup.invalid">Add review</button>
+	</form>
+</mat-card>
