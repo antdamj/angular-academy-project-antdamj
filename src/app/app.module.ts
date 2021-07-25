@@ -34,7 +34,6 @@ import { ShowDetailsContainerComponent } from './pages/show-details-container/sh
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AddReviewContainerComponent } from './pages/add-review-container/add-review-container.component';
 import { AddReviewComponent } from './pages/add-review-container/components/add-review/add-review.component';
-import { StarInputComponent } from './pages/add-review-container/components/star-input/star-input.component';
 
 @NgModule({
 	declarations: [
@@ -59,7 +58,6 @@ import { StarInputComponent } from './pages/add-review-container/components/star
 		ShowReviewComponent,
 		AddReviewContainerComponent,
 		AddReviewComponent,
-		StarInputComponent,
 	],
 	imports: [
 		BrowserModule,

@@ -1,4 +1,0 @@
-<span *ngFor="let star of stars; let i = index" (click)="rate(i + 1)">
-	<ng-container *ngIf="star; else noStar">⭐</ng-container>
-	<ng-template #noStar>★</ng-template>
-</span>
