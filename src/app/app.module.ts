@@ -34,6 +34,7 @@ import { ShowDetailsContainerComponent } from './pages/show-details-container/sh
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AddReviewContainerComponent } from './pages/add-review-container/add-review-container.component';
 import { AddReviewComponent } from './pages/add-review-container/components/add-review/add-review.component';
+import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
 
 @NgModule({
 	declarations: [
@@ -78,6 +79,11 @@ import { AddReviewComponent } from './pages/add-review-container/components/add-
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: AuthInterceptor,
+			multi: true,
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthErrorInterceptor,
 			multi: true,
 		},
 	],
