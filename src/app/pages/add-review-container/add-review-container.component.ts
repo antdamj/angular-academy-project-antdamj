@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { ReviewService } from 'src/app/services/review.service';
 import { IAddForm } from './components/add-review/add-review.component';
 

@@ -28,27 +28,36 @@ export class AddReviewComponent {
 	@Output() formData: EventEmitter<IAddForm> = new EventEmitter();
 
 	public addReviewFormGroup: FormGroup = this.fb.group({
-		rating: ['', Validators.required],
 		comment: ['', Validators.required],
 	});
+
+	private rating: number = 3;
+	public stars: boolean[] = [true, true, true, false, false]; // default rating to 3
+	public rate(rating: number) {
+		this.stars = this.stars.map((_, i) => rating > i);
+		this.rating = rating;
+	}
 
 	public onAddReview(): void {
 		const componentFactory = this.resolver.resolveComponentFactory(ShowReviewComponent);
 		const viewContainerRef = this.vcref;
 
 		const componentRef = viewContainerRef.createComponent<ShowReviewComponent>(componentFactory);
+
 		componentRef.instance.review = {
-			rating: this.addReviewFormGroup.get('rating')?.value,
 			comment: this.addReviewFormGroup.get('comment')?.value,
-			id: '',
+			rating: this.rating,
 			show_id: this.showId,
+			id: '',
 		};
 
-		this.addReviewFormGroup.get('show_id')
-			? this.addReviewFormGroup.patchValue({ show_id: parseInt(this.showId) })
-			: this.addReviewFormGroup.addControl('show_id', new FormControl(parseInt(this.showId)));
+		let outValue = {
+			comment: this.addReviewFormGroup.get('comment')?.value,
+			rating: this.rating,
+			show_id: parseInt(this.showId),
+		};
 
-		this.formData.emit(this.addReviewFormGroup.value);
+		this.formData.emit(outValue);
 		this.addReviewFormGroup.reset();
 	}
 }

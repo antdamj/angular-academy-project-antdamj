@@ -19,7 +19,6 @@ export class ReviewService {
 	}
 
 	public addReview(data: IAddForm): Observable<any> {
-		console.log('tu smo');
 		return this.http.post<any>('https://tv-shows.infinum.academy/reviews', data, { observe: 'response' });
 	}
 }
