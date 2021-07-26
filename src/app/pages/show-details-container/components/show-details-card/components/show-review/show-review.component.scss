@@ -5,7 +5,7 @@
 
 .grid-container {
 	display: grid;
-	grid-template-columns: 1fr 5fr;
+	grid-template-columns: 1fr 10fr 1fr 1fr;
 	background-color: #a5a877;
 	border-radius: 15px;
 }
@@ -17,4 +17,15 @@
 	padding: 10px;
 	padding-left: 20px;
 	margin: 10px;
+}
+
+.review-action {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+.review-action:hover {
+	cursor: pointer;
+	background-color: #8a8d66;
 }

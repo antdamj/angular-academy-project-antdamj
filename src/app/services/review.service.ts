@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IReview } from 'src/app/interfaces/review.interface';
 import { IAddForm } from '../pages/add-review-container/components/add-review/add-review.component';
 import { Review } from './review.model';
 
@@ -20,5 +19,9 @@ export class ReviewService {
 
 	public addReview(data: IAddForm): Observable<any> {
 		return this.http.post<any>('https://tv-shows.infinum.academy/reviews', data, { observe: 'response' });
+	}
+
+	public deleteReview(reviewId: string): Observable<any> {
+		return this.http.delete('https://tv-shows.infinum.academy/reviews/' + reviewId, { observe: 'response' });
 	}
 }
