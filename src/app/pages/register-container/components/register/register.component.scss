@@ -1,5 +1,68 @@
-form {
+.form-card {
+	width: 500px;
+	height: 500px;
+	padding: 0 100px;
+	border-radius: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form {
 	display: flex;
 	flex-direction: column;
-	text-align: center;
+}
+
+.field {
+	margin: 0 auto;
+}
+
+.logo {
+	margin: 32px auto;
+}
+
+.link {
+	color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	/*
+	for future reference: rgb() to replace with e.g. colors.$white: background-color
+	Q: same thing as in login styles
+	*/
+	-webkit-box-shadow: 0 0 0 30px rgb(55, 22, 135) inset !important;
+	-webkit-text-fill-color: white !important;
+}
+
+.button {
+	height: 50px;
+	width: 150px;
+	border-radius: 32px;
+	margin: 0 auto 28px;
+	background-color: white;
+	color: rgb(55, 22, 135);
+	text-transform: uppercase;
+}
+
+.button[disabled],
+.button:disabled {
+	color: gray;
+}
+
+@media screen and (max-width: 959.98px) {
+	// Layout Breakpoint.Small upper limit
+	.form-card {
+		width: 100vw;
+		height: 100vh;
+		padding: 0 45px;
+		border-radius: 0;
+	}
+}
+
+.form-error {
+	margin: auto;
+	margin-bottom: 16px;
 }

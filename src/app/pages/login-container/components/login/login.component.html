@@ -1,22 +1,26 @@
-<mat-card>
-	<form [formGroup]="loginFormGroup">
-		<mat-form-field appearance="outline">
+<mat-card class="form-card">
+	<form class="form" [formGroup]="loginFormGroup">
+		<app-logo class="logo"></app-logo>
+
+		<mat-form-field class="field" appearance="outline">
 			<!-- email -->
 			<mat-label>E-mail</mat-label>
 			<input matInput type="email" formControlName="email" autofocus />
 			<mat-icon matPrefix>person</mat-icon>
-			<mat-error *ngIf="loginFormGroup.get('email')?.errors?.required">Email is required.</mat-error>
-			<mat-error *ngIf="loginFormGroup.get('email')?.errors?.invalidEmail">Email must be valid.</mat-error>
+			<mat-error *ngIf="loginFormGroup.get('email')?.errors?.required; else elseError">Email is required.</mat-error>
+			<ng-template #elseError>
+				<mat-error *ngIf="loginFormGroup.get('email')?.errors?.invalidEmail">Email must be valid.</mat-error>
+			</ng-template>
 		</mat-form-field>
 
-		<mat-form-field appearance="outline">
+		<mat-form-field class="field" appearance="outline">
 			<mat-label>Password</mat-label>
 			<input matInput type="password" formControlName="password" />
 			<mat-icon matPrefix>lock</mat-icon>
 			<mat-error *ngIf="loginFormGroup.get('password')?.errors?.required">Password is required.</mat-error>
 		</mat-form-field>
 
-		<button mat-button (click)="loginAction()" [disabled]="loginFormGroup.invalid">Login</button>
-		<p>Don't have an account? <a href="/register">Create it</a> here.</p>
+		<button class="button" mat-button (click)="loginAction()" [disabled]="loginFormGroup.invalid">Log in</button>
+		<p>Don't have an account? <a class="link" href="/register">Create it</a> here.</p>
 	</form>
 </mat-card>
