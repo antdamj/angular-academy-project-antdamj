@@ -1,7 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { ILoginData } from 'src/app/pages/login-container/components/login/login.component';
 import { IRegisterData } from 'src/app/pages/register-container/components/register/register.component';
 import { StorageService } from './storage.service';
@@ -39,7 +39,7 @@ export class AuthService {
 	}
 
 	public registerUser(data: IRegisterData): Observable<any> {
-		return this.http.post<IRegisterData>(' https://tv-shows.infinum.academy/users', data, { observe: 'response' }).pipe(
+		return this.http.post<IRegisterData>('https://tv-shows.infinum.academy/users', data, { observe: 'response' }).pipe(
 			tap((response: HttpResponse<any>) => {
 				const uid: string | null = response.headers.get('uid');
 				const token: string | null = response.headers.get('access-token');
@@ -49,6 +49,14 @@ export class AuthService {
 					this.saveAuthData({ uid, token, client });
 					this._isLoggedIn$.next(true);
 				}
+			})
+		);
+	}
+
+	public getMe(): Observable<any> {
+		return this.http.get<any>('https://tv-shows.infinum.academy/users/me').pipe(
+			map((response) => {
+				return response.user;
 			})
 		);
 	}
