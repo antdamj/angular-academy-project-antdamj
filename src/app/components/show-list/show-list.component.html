@@ -1,4 +1,4 @@
-<ng-container *ngFor="let show of shows">
+<ng-container class="" *ngFor="let show of shows">
 	<a [routerLink]="['/show', show.id]">
 		<app-show-card [title]="show.title" [avgRating]="show.average_rating" [imageUrl]="show.image_url"></app-show-card>
 	</a>

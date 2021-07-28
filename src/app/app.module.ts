@@ -34,6 +34,7 @@ import { ShowDetailsContainerComponent } from './pages/show-details-container/sh
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AddReviewComponent } from './pages/show-details-container/components/add-review/add-review.component';
 import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
+import { LogoComponent } from './components/logo/logo.component';
 
 @NgModule({
 	declarations: [
@@ -57,6 +58,7 @@ import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
 		ShowReviewListComponent,
 		ShowReviewComponent,
 		AddReviewComponent,
+  LogoComponent,
 	],
 	imports: [
 		BrowserModule,

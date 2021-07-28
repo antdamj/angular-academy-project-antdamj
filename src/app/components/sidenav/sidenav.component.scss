@@ -1,16 +1,28 @@
-ul {
+// @use 'utils/colors';
+
+.list {
 	list-style-type: none;
 	padding: 0;
+	margin: 0;
+
+	display: flex;
+	flex-direction: column;
+
+	.list-item {
+		margin-bottom: 24px;
+	}
 }
 
-a {
-	display: inline-block;
-	padding: 8px 16px;
+.link {
+	padding: 8px 12px;
+
+	// color: colors.$white;
+	color: white;
 	text-decoration: none;
-	color: #000;
 	border-radius: 32px;
-}
 
-.active {
-	background-color: #ccc;
+	&.active {
+		// background-color: colors.$purple;
+		background-color: plum;
+	}
 }
