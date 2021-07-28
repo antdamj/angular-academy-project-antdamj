@@ -21,6 +21,10 @@ export class SidenavComponent {
 			url: 'top-rated',
 			title: 'Top rated',
 		},
+		{
+			url: 'profile',
+			title: 'My profile',
+		},
 	];
 
 	public logOut() {

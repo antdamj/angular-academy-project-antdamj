@@ -8,6 +8,7 @@ import { ShowDetailsContainerComponent } from './pages/show-details-container/sh
 import { LoginContainerComponent } from './pages/login-container/login-container.component';
 import { RegisterContainerComponent } from './pages/register-container/register-container.component';
 import { AppGuard } from './guards/app.guard';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
 	{
@@ -27,6 +28,10 @@ const routes: Routes = [
 			{
 				path: 'show/:id',
 				component: ShowDetailsContainerComponent,
+			},
+			{
+				path: 'profile',
+				component: ProfileComponent,
 			},
 		],
 	},

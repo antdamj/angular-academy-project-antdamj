@@ -35,6 +35,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AddReviewComponent } from './pages/show-details-container/components/add-review/add-review.component';
 import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
 import { LogoComponent } from './components/logo/logo.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
 	declarations: [
@@ -58,7 +59,8 @@ import { LogoComponent } from './components/logo/logo.component';
 		ShowReviewListComponent,
 		ShowReviewComponent,
 		AddReviewComponent,
-  LogoComponent,
+		LogoComponent,
+		ProfileComponent,
 	],
 	imports: [
 		BrowserModule,
