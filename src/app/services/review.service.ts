@@ -2,8 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IAddForm } from '../pages/add-review-container/components/add-review/add-review.component';
 import { Review } from './review.model';
+
+interface IAddForm {
+	comment: string;
+	rating: number;
+	show_id: number;
+}
 
 @Injectable({
 	providedIn: 'root',

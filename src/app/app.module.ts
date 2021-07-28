@@ -22,18 +22,17 @@ import { ShowCardComponent } from 'src/app/components/show-card/show-card.compon
 import { RatingComponent } from 'src/app/components/rating/rating.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TopShowsContainerComponent } from 'src/app/pages/top-shows-container/top-shows-container.component';
-import { ShowReviewComponent } from 'src/app/pages/show-details-container/components/show-details-card/components/show-review/show-review.component';
+import { ShowReviewComponent } from 'src/app/pages/show-details-container/components/show-review/show-review.component';
 import { AuthenticationLayoutComponent } from 'src/app/components/authentication-layout/authentication-layout.component';
 import { LoginComponent } from 'src/app/pages/login-container/components/login/login.component';
 import { RegisterComponent } from 'src/app/pages/register-container/components/register/register.component';
 import { LoginContainerComponent } from './pages/login-container/login-container.component';
 import { RegisterContainerComponent } from './pages/register-container/register-container.component';
-import { ShowReviewListComponent } from './pages/show-details-container/components/show-details-card/components/show-review-list/show-review-list.component';
+import { ShowReviewListComponent } from './pages/show-details-container/components/show-review-list/show-review-list.component';
 import { ShowDetailsCardComponent } from './pages/show-details-container/components/show-details-card/show-details-card.component';
 import { ShowDetailsContainerComponent } from './pages/show-details-container/show-details-container.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { AddReviewContainerComponent } from './pages/add-review-container/add-review-container.component';
-import { AddReviewComponent } from './pages/add-review-container/components/add-review/add-review.component';
+import { AddReviewComponent } from './pages/show-details-container/components/add-review/add-review.component';
 import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
 
 @NgModule({
@@ -57,7 +56,6 @@ import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
 		RegisterContainerComponent,
 		ShowReviewListComponent,
 		ShowReviewComponent,
-		AddReviewContainerComponent,
 		AddReviewComponent,
 	],
 	imports: [

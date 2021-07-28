@@ -8,7 +8,8 @@ import {
 	ViewContainerRef,
 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ShowReviewComponent } from 'src/app/pages/show-details-container/components/show-details-card/components/show-review/show-review.component';
+import { combineLatest, Observable } from 'rxjs';
+import { ShowReviewComponent } from 'src/app/pages/show-details-container/components/show-review/show-review.component';
 
 export interface IAddForm {
 	rating: number;
@@ -39,17 +40,7 @@ export class AddReviewComponent {
 	}
 
 	public onAddReview(): void {
-		const componentFactory = this.resolver.resolveComponentFactory(ShowReviewComponent);
-		const viewContainerRef = this.vcref;
-
-		const componentRef = viewContainerRef.createComponent<ShowReviewComponent>(componentFactory);
-
-		componentRef.instance.review = {
-			comment: this.addReviewFormGroup.get('comment')?.value,
-			rating: this.rating,
-			show_id: this.showId,
-			id: '',
-		};
+		// tu dodaj i onda no reload bruh
 
 		let outValue = {
 			comment: this.addReviewFormGroup.get('comment')?.value,

@@ -17,7 +17,9 @@
 				</ng-template>
 			</span>
 
-			<button mat-raised-button (click)="onAddReview()" [disabled]="addReviewFormGroup.invalid">Add review</button>
+			<button mat-raised-button type="button" (click)="onAddReview()" [disabled]="addReviewFormGroup.invalid">
+				Add review
+			</button>
 		</div>
 	</form>
 </mat-card>
