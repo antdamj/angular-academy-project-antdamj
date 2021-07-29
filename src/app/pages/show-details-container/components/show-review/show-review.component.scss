@@ -1,31 +1,61 @@
-.full-container {
-	background-color: #d2d694;
-	padding: 10px;
+.review-container {
+	display: flex;
+	flex-direction: row;
+	background-color: #371687;
+	border-radius: 24px;
+	margin: 12px 0;
+	padding: 30px;
 }
 
-.grid-container {
-	display: grid;
-	grid-template-columns: 1fr 10fr 1fr 1fr;
-	background-color: #a5a877;
-	border-radius: 15px;
+.review-left {
+	display: flex;
+	flex-direction: row;
+	width: 50%;
 }
 
-.review {
-	background-color: #7b7e59;
-	border-radius: 15px;
-	color: white;
-	padding: 10px;
-	padding-left: 20px;
-	margin: 10px;
+.review-img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px;
+	height: 40px;
+	font-size: 16px;
 }
 
-.review-action {
-	-moz-user-select: none;
-	-khtml-user-select: none;
-	-webkit-user-select: none;
+.review-img img {
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 20px;
 }
 
-.review-action:hover {
-	cursor: pointer;
-	background-color: #8a8d66;
+.review-info {
+	display: flex;
+	flex-direction: column;
+	margin: 0 10px;
 }
+
+.review-content {
+	width: 50%;
+}
+
+@media screen and (max-width: 959.98px) {
+	// Layout Breakpoint.Small upper limit
+	.review-container {
+		flex-direction: column;
+		margin: 8px 0;
+		padding: 24px 14px 14px;
+		font-size: 14px;
+	}
+
+	.review-content {
+		margin: 0;
+	}
+
+	.review-left,
+	.review-content {
+		width: 100%;
+	}
+}
+
+// onaj iznad nek je 50px dole

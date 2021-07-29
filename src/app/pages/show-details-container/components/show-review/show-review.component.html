@@ -1,14 +1,19 @@
 <ng-container *ngIf="review">
-	<div class="full-container">
-		<div class="grid-container">
-			<div class="review">{{ review.rating }}/5</div>
-			<div class="review">{{ review.comment }}</div>
-			<div class="review review-action" (click)="onEdit(review.id)">
-				<mat-icon>edit</mat-icon>
+	<div class="review-container">
+		<div class="review-left">
+			<div class="review-img">
+				<img src="{{ review.user.image_url }}" />
 			</div>
-			<div class="review review-action" (click)="onDelete(review.id)">
-				<mat-icon>delete</mat-icon>
+			<div class="review-info">
+				<p>{{ review.user?.email }}</p>
+				<div class="rating-container">
+					<p>{{ review.rating }}/5</p>
+					<!-- <span *ngFor="let "></span> -->
+				</div>
 			</div>
+		</div>
+		<div class="review-content">
+			<p>{{ review.comment }}</p>
 		</div>
 	</div>
 </ng-container>

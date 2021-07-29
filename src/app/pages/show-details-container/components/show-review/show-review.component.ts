@@ -16,8 +16,4 @@ export class ShowReviewComponent {
 		console.log('Deleting', id);
 		this.reviewService.deleteReview(id).subscribe();
 	}
-
-	public onEdit(id: string): void {
-		console.log('Editing', id);
-	}
 }
