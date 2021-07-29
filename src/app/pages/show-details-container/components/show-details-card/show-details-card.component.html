@@ -1,14 +1,20 @@
-<mat-card class="post-detail-container">
-	<img [src]="show.image_url" />
-	<div class="post-detail">
-		<div>
+<mat-card class="details-card">
+	<img class="image" [src]="show.image_url" />
+	<div class="info">
+		<div class="">
 			<h3>{{ show.title }}</h3>
-			<p>
-				Average rating: <span>{{ show.average_rating }}</span>
+			<p class="rating">
+				<mat-icon>star</mat-icon>
+				<span>{{ show.average_rating }}/5</span>
 			</p>
 		</div>
 		<p>{{ show.description }}</p>
+	</div>
+</mat-card>
+<div class="reviews">
+	<div class="reviews-title">Reviews</div>
+	<div class="reviews-content">
 		<app-add-review (formData)="addFormData($event)" [showId]="show.id"></app-add-review>
 		<app-show-review-list [reviews]="reviews"></app-show-review-list>
 	</div>
-</mat-card>
+</div>
