@@ -15,5 +15,17 @@
 		<div class="review-content">
 			<p>{{ review.comment }}</p>
 		</div>
+		<div class="review-action">
+			<ng-container *ngIf="review.user.email === uid">
+				<button mat-icon-button [matMenuTriggerFor]="menu">
+					<mat-icon>more_vert</mat-icon>
+				</button>
+				<mat-menu #menu="matMenu">
+					<button mat-menu-item (click)="onDelete(review.id)">
+						<span>Delete</span>
+					</button>
+				</mat-menu>
+			</ng-container>
+		</div>
 	</div>
 </ng-container>
