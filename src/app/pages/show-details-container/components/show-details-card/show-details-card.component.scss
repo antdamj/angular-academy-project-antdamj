@@ -41,13 +41,12 @@
 /**/
 
 .reviews {
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: 144px 1fr;
 	margin-top: 100px;
 }
 
 .reviews-title {
-	width: 144x;
 	margin-right: 40px;
 }
 
