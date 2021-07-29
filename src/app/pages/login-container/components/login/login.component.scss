@@ -1,3 +1,5 @@
+@use 'utils/colors';
+
 .form-card {
 	width: 500px;
 	height: 500px;
@@ -22,22 +24,15 @@
 }
 
 .link {
-	color: white;
+	color: colors.$white;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-	/*
-	for future reference: rgb() to replace with e.g. colors.$white: background-color
-	
-	Q: what's the better way to do this? !important is terrible, i know
-	this is what i found on stack overflow.
-	same thing occurs in chrome and edge. chromium thing?
-	*/
-	-webkit-box-shadow: 0 0 0 30px rgb(55, 22, 135) inset !important;
-	-webkit-text-fill-color: white !important;
+	-webkit-box-shadow: 0 0 0 30px colors.$purple inset !important;
+	-webkit-text-fill-color: colors.$white !important;
 }
 
 .button {
@@ -45,8 +40,8 @@ input:-webkit-autofill:active {
 	width: 144px;
 	border-radius: 32px;
 	margin: 0 auto 28px;
-	background-color: white;
-	color: rgb(55, 22, 135);
+	background-color: colors.$white;
+	color: colors.$purple;
 	text-transform: uppercase;
 }
 

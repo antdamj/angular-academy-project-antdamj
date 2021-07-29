@@ -1,3 +1,5 @@
+@use 'utils/colors';
+
 form {
 	display: flex;
 	flex-direction: column;
@@ -5,7 +7,7 @@ form {
 
 .review-card {
 	margin-bottom: 50px;
-	background-color: #1b004c;
+	background-color: colors.$dark-purple;
 	box-shadow: none;
 	padding: 0;
 }
@@ -31,7 +33,6 @@ mat-icon:hover {
 .review-rating {
 	display: flex;
 	flex-direction: row;
-	// justify-content: space-between;
 	align-items: center;
 }
 
@@ -44,12 +45,12 @@ mat-icon:hover {
 	height: 50px;
 	width: 144px;
 	border-radius: 32px;
-	background-color: white;
-	color: rgb(55, 22, 135);
+	background-color: colors.$white;
+	color: color.$purple;
 	text-transform: uppercase;
 }
 
 .button[disabled],
 .button:disabled {
-	color: gray;
+	color: colors.$light-purple;
 }

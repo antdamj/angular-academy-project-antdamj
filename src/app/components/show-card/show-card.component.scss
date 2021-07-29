@@ -1,4 +1,4 @@
-// @use 'utils/colors';
+@use 'utils/colors';
 
 .image {
 	width: 100%;
@@ -12,7 +12,7 @@
 	border-bottom-left-radius: 24px;
 	border-bottom-right-radius: 24px;
 	padding: 0;
-	// background-color: colors.$purple;
+	background-color: colors.$purple;
 }
 
 .info {

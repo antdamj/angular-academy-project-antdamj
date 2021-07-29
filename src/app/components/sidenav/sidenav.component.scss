@@ -1,4 +1,4 @@
-// @use 'utils/colors';
+@use 'utils/colors';
 
 .list {
 	list-style-type: none;
@@ -15,14 +15,11 @@
 
 .link {
 	padding: 8px 12px;
-
-	// color: colors.$white;
 	color: white;
 	text-decoration: none;
 	border-radius: 32px;
 
 	&.active {
-		// background-color: colors.$purple;
-		background-color: plum;
+		background-color: colors.$purple;
 	}
 }

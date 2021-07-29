@@ -1,3 +1,5 @@
+@use 'utils/colors';
+
 .details-card {
 	display: flex;
 	flex-direction: column;
@@ -26,8 +28,8 @@
 	display: flex;
 	flex-direction: row;
 	padding: 40px;
-	background-color: white;
-	color: black;
+	background-color: colors.$white;
+	color: colors.$black;
 	border-bottom-left-radius: 24px;
 	border-bottom-right-radius: 24px;
 }
