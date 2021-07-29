@@ -10,10 +10,10 @@ export class AuthInterceptor implements HttpInterceptor {
 	private authData: IAuthData | null = this.storageService.get('authdata');
 
 	intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-		// Q: should i copy request into a new request?
+		let finalRequest: HttpRequest<unknown> = request;
 
 		if (this.authData) {
-			request = request.clone({
+			finalRequest = request.clone({
 				headers: new HttpHeaders({
 					uid: this.authData.uid,
 					'access-token': this.authData.token,
@@ -22,6 +22,6 @@ export class AuthInterceptor implements HttpInterceptor {
 			});
 		}
 
-		return next.handle(request);
+		return next.handle(finalRequest);
 	}
 }

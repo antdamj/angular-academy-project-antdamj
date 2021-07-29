@@ -33,7 +33,6 @@ export class ShowDetailsContainerComponent implements OnInit {
 				this.reviewService.getReviewsForShow(id),
 			]).pipe(
 				map(([show, reviews]) => {
-					console.log(show);
 					return {
 						show,
 						reviews,
