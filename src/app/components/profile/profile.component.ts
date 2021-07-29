@@ -12,4 +12,14 @@ export class ProfileComponent {
 	constructor(private authService: AuthService) {}
 
 	public userData$ = this.authService.getMe().pipe(map((res) => res));
+
+	public processDrop(ev: Event) {
+		ev.preventDefault();
+		console.log('yas');
+	}
+
+	public processDragOver(ev: Event) {
+		ev.preventDefault();
+		console.log('yas2');
+	}
 }

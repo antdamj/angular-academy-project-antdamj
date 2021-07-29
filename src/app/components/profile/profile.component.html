@@ -1,15 +1,14 @@
 <ng-container *ngIf="userData$ | async as userData">
 	<div class="profile-container">
 		<div class="credentials-container">
-			<p>EMAIL</p>
-			<p>{{ userData.email }}</p>
+			<p class="title">EMAIL</p>
+			<p class="content">{{ userData.email }}</p>
 		</div>
 		<ng-container *ngIf="userData.image_url; else uploadImg">
-			<img src="{{ userData.image_url }}" />
+			<img class="profile-image" src="{{ userData.image_url }}" />
 		</ng-container>
 		<ng-template #uploadImg>
-			<div class="upload-image">
-				<!-- <img class="image" /> -->
+			<div class="upload-image" (ondrop)="processDrop($event)" (ondragover)="processDragOver($event)">
 				<p>Sad TV img</p>
 				<p class="image-description">Drop your photo here</p>
 			</div>
