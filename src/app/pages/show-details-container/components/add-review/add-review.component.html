@@ -1,0 +1,34 @@
+<mat-card class="review-card">
+	<form [formGroup]="addReviewFormGroup">
+		<textarea #comment class="textarea" formControlName="comment">
+			<mat-error *ngIf="addReviewFormGroup.get('comment')?.errors?.required">
+				A comment is required.
+			</mat-error>
+		</textarea
+		>
+
+		<div class="review-bottom">
+			<div class="review-rating">
+				<p>Rating</p>
+				<span *ngFor="let star of stars; let i = index" (click)="rate(i + 1)">
+					<ng-container *ngIf="star; else noStar">
+						<mat-icon>star</mat-icon>
+					</ng-container>
+					<ng-template #noStar>
+						<mat-icon>star_border</mat-icon>
+					</ng-template>
+				</span>
+			</div>
+
+			<button
+				class="button"
+				mat-raised-button
+				type="button"
+				(click)="onAddReview()"
+				[disabled]="addReviewFormGroup.invalid"
+			>
+				Post
+			</button>
+		</div>
+	</form>
+</mat-card>

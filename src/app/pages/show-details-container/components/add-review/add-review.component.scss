@@ -1,0 +1,79 @@
+@use 'utils/colors';
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+.review-card {
+	margin-bottom: 50px;
+	background-color: colors.$dark-purple;
+	box-shadow: none;
+	padding: 0;
+}
+
+/* don't highlight stars in span */
+mat-icon {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+mat-icon:hover {
+	cursor: pointer;
+}
+
+.review-bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.review-rating {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.review-rating p {
+	margin: 0 12px;
+	height: 24px;
+}
+
+.button {
+	height: 50px;
+	width: 144px;
+	border-radius: 32px;
+	background-color: colors.$white;
+	color: colors.$purple;
+	text-transform: uppercase;
+}
+
+.button[disabled],
+.button:disabled {
+	color: colors.$light-purple;
+}
+
+.textarea {
+	height: 80px;
+	border-radius: 24px;
+	outline: none;
+	resize: none;
+	padding: 28px 40px;
+	font-size: 18px;
+	font-weight: 400;
+	font-family: inherit;
+	line-height: 24px;
+	margin: 0;
+	border: 0;
+	margin-bottom: 24px;
+}
+
+@media screen and (max-width: 959.98px) {
+	// Layout Breakpoint.Small upper limit
+	.textarea {
+		height: 52px;
+		padding: 16px 40px;
+	}
+}

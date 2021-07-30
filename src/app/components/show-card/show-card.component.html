@@ -1,11 +1,7 @@
-<mat-card class="example-card" (click)="heyTitle()">
-	<mat-card-header>
-		<div mat-card-avatar class="example-header-image"></div>
-		<mat-card-title>{{ title }}</mat-card-title>
-	</mat-card-header>
-	<img mat-card-image src="{{ imageUrl }}" alt="Photo of a Shiba Inu" />
-
-	<mat-card-content>
-		<app-rating [avgRating]="avgRating"></app-rating>
-	</mat-card-content>
+<mat-card class="show-card">
+	<img mat-card-image class="image" src="{{ imageUrl }}" />
+	<div class="info">
+		<h3>{{ title }}</h3>
+		<app-rating class="mat-caption" [avgRating]="avgRating"></app-rating>
+	</div>
 </mat-card>

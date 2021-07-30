@@ -1,0 +1,56 @@
+@use 'utils/colors';
+
+.profile-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.credentials-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-weight: 500;
+	padding-bottom: 40px;
+
+	.title {
+		font-size: 14px;
+	}
+
+	.content {
+		font-size: 20px;
+	}
+}
+
+.upload-image {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 600px;
+	height: 400px;
+	background-color: rgba($color: colors.$light-purple, $alpha: 0.15);
+	border: 2px white dashed;
+	border-radius: 24px;
+}
+
+.image-description {
+	font-size: 24px;
+	font-weight: 700;
+	color: colors.$light-purple;
+}
+
+@media screen and (max-width: 959.98px) {
+	// Layout Breakpoint.Small upper limit
+	.upload-image {
+		width: 270px;
+		height: 270px;
+	}
+}
+
+.hide-file {
+	width: 0;
+	height: 0;
+}

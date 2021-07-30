@@ -1,45 +1,63 @@
-<mat-card>
-	<form [formGroup]="registerFormGroup">
-		<mat-form-field appearance="outline">
-			<!-- email -->
+<mat-card class="form-card">
+	<form class="form" [formGroup]="registerFormGroup">
+		<app-logo class="logo"></app-logo>
+
+		<mat-form-field class="field" appearance="outline">
 			<mat-label>E-mail:</mat-label>
 			<input matInput formControlName="email" />
 			<mat-icon matPrefix>person</mat-icon>
-			<mat-error *ngIf="registerFormGroup.get('email')?.errors?.required">Email is required.</mat-error>
-			<mat-error *ngIf="registerFormGroup.get('email')?.errors?.invalidEmail">Email must be valid.</mat-error>
+			<mat-error *ngIf="registerFormGroup.get('email')?.errors?.required; else emailElse">Email is required.</mat-error>
+			<ng-template #emailElse>
+				<mat-error *ngIf="registerFormGroup.get('email')?.errors?.invalidEmail">Email must be valid.</mat-error>
+			</ng-template>
 		</mat-form-field>
 
-		<mat-form-field appearance="outline">
-			<!-- password -->
+		<mat-form-field class="field" appearance="outline">
 			<mat-label>Password:</mat-label>
 			<input matInput type="password" formControlName="password" />
 			<mat-icon matPrefix>lock</mat-icon>
-			<mat-error *ngIf="registerFormGroup.get('password')?.errors?.required">Password is required.</mat-error>
-			<mat-error *ngIf="registerFormGroup.get('password')?.hasError('minlength')">
-				Password must be at least 8 characters long.
+			<mat-error *ngIf="registerFormGroup.get('password')?.errors?.required; else passEight">
+				Password is required.
 			</mat-error>
-			<mat-error *ngIf="registerFormGroup.get('password')?.hasError('pattern')">
-				Password must contain at least one uppercase, one lowercase and a digit.
-			</mat-error>
+			<ng-template #passEight>
+				<mat-error *ngIf="registerFormGroup.get('password')?.hasError('minlength'); else passChars">
+					Password must be at least 8 characters long.
+				</mat-error>
+			</ng-template>
+			<ng-template #passChars>
+				<mat-error *ngIf="registerFormGroup.get('password')?.hasError('pattern')">
+					Password must contain at least one uppercase, one lowercase and a digit.
+				</mat-error>
+			</ng-template>
 		</mat-form-field>
 
-		<mat-form-field appearance="outline">
-			<!-- password repeat -->
+		<mat-form-field class="field" appearance="outline">
 			<mat-label>Confirm password</mat-label>
 			<input matInput type="password" formControlName="password_confirmation" />
 			<mat-icon matPrefix>lock</mat-icon>
 			<mat-error *ngIf="registerFormGroup.get('email')?.errors?.required">Please type your password again.</mat-error>
 		</mat-form-field>
 
-		<mat-error *ngIf="registerFormGroup.errors?.mailPasswordRepeat">
+		<mat-error class="form-error" *ngIf="registerFormGroup.errors?.mailPasswordRepeat; else passMatch">
 			<span>Password can't match email!</span>
 		</mat-error>
-		<mat-error *ngIf="registerFormGroup.errors?.passwordMismatch">
-			<span>Passwords must match!</span>
-		</mat-error>
+		<ng-template #passMatch>
+			<mat-error class="form-error" *ngIf="registerFormGroup.errors?.passwordMismatch">
+				<span>Passwords must match!</span>
+			</mat-error>
+		</ng-template>
 
-		<button mat-raised-button (click)="signupAction()" [disabled]="registerFormGroup.invalid">Sign up</button>
+		<button class="button" mat-raised-button (click)="signupAction()" [disabled]="registerFormGroup.invalid">
+			Sign up
+		</button>
 
-		<p>Already have an account? <a href="/login">Login</a> here.</p>
+		<ng-container *ngIf="loading$ | async; else elseLoading">
+			<mat-progress-bar class="loading" mode="indeterminate"></mat-progress-bar>
+		</ng-container>
+		<ng-template #elseLoading>
+			<div class="loading"></div>
+		</ng-template>
+
+		<p>Already have an account? <a class="link" href="/login">Login</a> here.</p>
 	</form>
 </mat-card>

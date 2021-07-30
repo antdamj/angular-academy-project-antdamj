@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Review } from 'src/app/services/review.model';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Show } from 'src/app/services/show.model';
 
 @Component({

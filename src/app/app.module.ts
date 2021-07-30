@@ -4,16 +4,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
-import { AppComponent } from './app.component';
+import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { AppComponent } from './app.component';
 import { MainLayoutComponent } from 'src/app/components/main-layout/main-layout.component';
 import { SidenavComponent } from 'src/app/components/sidenav/sidenav.component';
 import { AllShowsContainerComponent } from 'src/app/pages/all-shows-container/all-shows-container.component';
@@ -22,53 +22,74 @@ import { ShowCardComponent } from 'src/app/components/show-card/show-card.compon
 import { RatingComponent } from 'src/app/components/rating/rating.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TopShowsContainerComponent } from 'src/app/pages/top-shows-container/top-shows-container.component';
-import { ShowReviewComponent } from 'src/app/pages/show-details-container/components/show-details-card/components/show-review/show-review.component';
+import { ShowReviewComponent } from 'src/app/pages/show-details-container/components/show-review/show-review.component';
 import { AuthenticationLayoutComponent } from 'src/app/components/authentication-layout/authentication-layout.component';
 import { LoginComponent } from 'src/app/pages/login-container/components/login/login.component';
 import { RegisterComponent } from 'src/app/pages/register-container/components/register/register.component';
 import { LoginContainerComponent } from './pages/login-container/login-container.component';
 import { RegisterContainerComponent } from './pages/register-container/register-container.component';
-import { ShowReviewListComponent } from './pages/show-details-container/components/show-details-card/components/show-review-list/show-review-list.component';
+import { ShowReviewListComponent } from './pages/show-details-container/components/show-review-list/show-review-list.component';
 import { ShowDetailsCardComponent } from './pages/show-details-container/components/show-details-card/show-details-card.component';
 import { ShowDetailsContainerComponent } from './pages/show-details-container/show-details-container.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AddReviewComponent } from './pages/show-details-container/components/add-review/add-review.component';
+import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
+import { LogoComponent } from './components/logo/logo.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
 	declarations: [
-		AppComponent,
-		MainLayoutComponent,
-		SidenavComponent,
+		AddReviewComponent,
 		AllShowsContainerComponent,
-		ShowListComponent,
-		ShowCardComponent,
-		RatingComponent,
-		ShowListComponent,
-		TopShowsContainerComponent,
-		ShowDetailsContainerComponent,
-		ShowDetailsCardComponent,
-		ShowReviewComponent,
-		LoginComponent,
-		RegisterComponent,
+		AppComponent,
 		AuthenticationLayoutComponent,
+		LoginComponent,
 		LoginContainerComponent,
+		LogoComponent,
+		MainLayoutComponent,
+		ProfileComponent,
+		RatingComponent,
+		RegisterComponent,
 		RegisterContainerComponent,
+		ShowCardComponent,
+		ShowDetailsCardComponent,
+		ShowDetailsContainerComponent,
+		ShowListComponent,
+		ShowListComponent,
+		ShowReviewComponent,
+		ShowReviewComponent,
 		ShowReviewListComponent,
+		SidenavComponent,
+		TopShowsContainerComponent,
 	],
 	imports: [
-		BrowserModule,
-		BrowserAnimationsModule,
-		MatCardModule,
-		MatSidenavModule,
-		MatIconModule,
 		AppRoutingModule,
-		MatProgressSpinnerModule,
-		MatInputModule,
-		ReactiveFormsModule,
-		MatButtonModule,
+		BrowserAnimationsModule,
+		BrowserModule,
 		HttpClientModule,
+		MatButtonModule,
+		MatCardModule,
+		MatIconModule,
+		MatInputModule,
+		MatMenuModule,
 		MatProgressBarModule,
+		MatProgressSpinnerModule,
+		MatSidenavModule,
 		MatSnackBarModule,
+		ReactiveFormsModule,
 	],
-	providers: [],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthInterceptor,
+			multi: true,
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthErrorInterceptor,
+			multi: true,
+		},
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

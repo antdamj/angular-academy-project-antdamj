@@ -17,6 +17,7 @@ export class RegisterContainerComponent {
 	constructor(private authService: AuthService, private router: Router) {}
 
 	public onUserSignup(data: IRegisterData): void {
+		this.loading$.next(true);
 		this.authService
 			.registerUser(data)
 			.pipe(

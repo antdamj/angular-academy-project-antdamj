@@ -1,0 +1,207 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+
+@import '~@angular/material/theming';
+
+$light-purple: #8d5ce5;
+$purple: #371687;
+$dark-purple: #1b004c;
+$error: #ff2498;
+
+$typography-config: mat.define-typography-config(
+	$headline: mat.define-typography-level(40px, 52px, 700),
+	$title: mat.define-typography-level(24px, 32px, 700),
+	$subheading-2: mat.define-typography-level(18px, 24px, 700),
+	$body-1: mat.define-typography-level(16px, 20px, 400),
+	$body-2: mat.define-typography-level(16px, 20px, 700),
+	$button: mat.define-typography-level(14px, 14px, 500),
+	$caption: mat.define-typography-level(14px, 20px, 700),
+);
+
+@include mat-core($typography-config);
+
+$grey-palette: (
+	50: #fafafa,
+	100: #f5f5f5,
+	200: #eeeeee,
+	300: #e0e0e0,
+	400: #bdbdbd,
+	500: #9e9e9e,
+	600: #757575,
+	700: #616161,
+	800: #424242,
+	900: #212121,
+);
+
+$background: (
+	status-bar: black,
+	app-bar: map.get($grey-palette, 900),
+	background: $dark-purple,
+	hover: rgba(white, 0.04),
+	card: $purple,
+	dialog: $dark-purple,
+	disabled-button: rgba(white, 0.12),
+	raised-button: white,
+	focused-button: white,
+	selected-button: white,
+	selected-disabled-button: white,
+	disabled-button-toggle: black,
+	unselected-chip: map.get($grey-palette, 700),
+	disabled-list-option: black,
+	tooltip: map.get($grey-palette, 700),
+);
+
+$foreground: (
+	base: white,
+	divider: $light-dividers,
+	dividers: $light-dividers,
+	disabled: $light-disabled-text,
+	disabled-button: rgba(white, 0.3),
+	disabled-text: $light-disabled-text,
+	elevation: black,
+	hint-text: $light-disabled-text,
+	secondary-text: $light-secondary-text,
+	icon: white,
+	icons: white,
+	text: white,
+	slider-min: white,
+	slider-off: rgba(white, 0.3),
+	slider-off-active: rgba(white, 0.3),
+);
+
+$accent-color-palette: (
+	50: #ede6f5,
+	100: #d1c3e6,
+	200: #b39bd5,
+	300: #9672c5,
+	400: #8053b9,
+	500: #6a35ac,
+	600: #6130a6,
+	700: #55289e,
+	800: #4a2295,
+	900: #381687,
+	contrast: (
+		50: #000000,
+		100: #ffffff,
+		200: #ffffff,
+		300: #ffffff,
+		400: #ffffff,
+		500: #ffffff,
+		600: #ffffff,
+		700: #ffffff,
+		800: #ffffff,
+		900: #ffffff,
+	),
+);
+
+$primary-color-palette: (
+	50: #ffffff,
+	100: #fafafa,
+	200: #f5f5f5,
+	300: #f0f0f0,
+	400: #dedede,
+	500: #c2c2c2,
+	600: #979797,
+	700: #818181,
+	800: #606060,
+	900: #3c3c3c,
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #000000,
+		400: #000000,
+		500: #000000,
+		600: #ffffff,
+		700: #ffffff,
+		800: #ffffff,
+		900: #ffffff,
+	),
+);
+
+$warn-color-palette: (
+	50: #fde4f1,
+	100: #fbbbdd,
+	200: #fb8dc6,
+	300: #fd5aae,
+	400: #ff2499,
+	500: #ff0082,
+	600: #f0007e,
+	700: #d90078,
+	800: #c30074,
+	900: #99006c,
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #ffffff,
+		400: #ffffff,
+		500: #ffffff,
+		600: #ffffff,
+		700: #ffffff,
+		800: #ffffff,
+		900: #ffffff,
+	),
+);
+
+$primary: mat-palette($primary-color-palette, 50);
+$accent: mat-palette($accent-color-palette, 900);
+$warn: mat-palette($warn-color-palette, 400);
+
+@include all-component-themes(
+	(
+		primary: $primary,
+		accent: $accent,
+		warn: $warn,
+		is-dark: true,
+		foreground: $foreground,
+		background: $background,
+	)
+);
+
+.shows-app {
+	.mat-raised-button.mat-primary {
+		color: $purple;
+		border-radius: 32px;
+		padding: 20px 40px;
+		max-height: 52px;
+		text-transform: uppercase;
+		line-height: 14px;
+
+		&.mat-button-disabled {
+			background-color: rgba($color: #ffffff, $alpha: 0.4);
+		}
+	}
+
+	.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+		opacity: 1;
+	}
+
+	.mat-form-field-label {
+		color: white;
+	}
+
+	.mat-form-field-appearance-outline .mat-form-field-outline-start {
+		border-radius: 30px 0 0 30px;
+	}
+
+	.mat-form-field-appearance-outline .mat-form-field-outline-end {
+		border-radius: 0 30px 30px 0;
+	}
+
+	.mat-drawer-side {
+		border: none;
+	}
+
+	.mat-drawer-backdrop.mat-drawer-shown {
+		background-color: rgba($color: #000000, $alpha: 0.4);
+	}
+
+	.mat-form-field-prefix {
+		margin-right: 8px;
+	}
+
+	.mat-form-field-appearance-outline .mat-form-field-flex {
+		padding: 0 28px;
+	}
+}
