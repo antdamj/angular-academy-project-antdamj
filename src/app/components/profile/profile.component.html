@@ -8,10 +8,13 @@
 			<img class="profile-image" src="{{ userData.image_url }}" />
 		</ng-container>
 		<ng-template #uploadImg>
-			<div class="upload-image" (ondrop)="processDrop($event)" (ondragover)="processDragOver($event)">
-				<p>Sad TV img</p>
-				<p class="image-description">Drop your photo here</p>
-			</div>
+			<form #imageupload (change)="processChange(imageupload)">
+				<input class="hide-file" type="file" id="avatar" name="avatar" accept="image/*" />
+				<label class="upload-image" for="avatar">
+					<p>Sad TV img</p>
+					<span>Drag your file here</span>
+				</label>
+			</form>
 		</ng-template>
 	</div>
 </ng-container>

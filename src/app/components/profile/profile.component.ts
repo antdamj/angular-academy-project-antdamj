@@ -13,13 +13,8 @@ export class ProfileComponent {
 
 	public userData$ = this.authService.getMe().pipe(map((res) => res));
 
-	public processDrop(ev: Event) {
-		ev.preventDefault();
-		console.log('yas');
-	}
-
-	public processDragOver(ev: Event) {
-		ev.preventDefault();
-		console.log('yas2');
+	public processChange(form: any) {
+		const files = form.files;
+		console.log(files);
 	}
 }
