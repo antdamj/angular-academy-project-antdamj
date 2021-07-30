@@ -32,24 +32,22 @@ export class ShowDetailsContainerComponent implements OnInit {
 
 	public onSendData(data: IAddForm): void {
 		const id: string | null = this.route.snapshot.paramMap.get('id');
-		const id$: Observable<string | null> = of(id);
-		console.log('Data id is', id);
 
 		this.reviewService.addReview(data).subscribe();
 
-		this.templateData$ = combineLatest([
-			this.showService.getShowById(id ? id : ''),
-			this.reviewService.getReviewsForShow(id ? id : ''),
-		]).pipe(
-			map(([show, reviews]) => {
-				{
+		if (id) {
+			this.templateData$ = combineLatest([
+				this.showService.getShowById(id),
+				this.reviewService.getReviewsForShow(id),
+			]).pipe(
+				map(([show, reviews]) => {
 					return {
 						show,
 						reviews,
 					};
-				}
-			})
-		);
+				})
+			);
+		}
 
 		this.router.navigate(['/show/' + id]);
 	}
