@@ -15,7 +15,6 @@ export class ShowReviewComponent implements OnInit {
 	public uid: string;
 
 	public onDelete(id: string): void {
-		console.log('Deleting', id);
 		this.reviewService.deleteReview(id).subscribe();
 	}
 

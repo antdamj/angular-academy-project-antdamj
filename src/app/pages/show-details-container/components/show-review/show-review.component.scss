@@ -1,12 +1,18 @@
 @use 'utils/colors';
 
-.review-container {
-	display: flex;
-	flex-direction: row;
+.review-wrapper {
+	display: grid;
+	grid-template-columns: 11fr 1fr;
+
 	background-color: colors.$purple;
 	border-radius: 24px;
 	margin: 12px 0;
 	padding: 30px;
+}
+
+.review-container {
+	display: flex;
+	flex-direction: row;
 }
 
 .review-left {
@@ -43,8 +49,12 @@
 
 @media screen and (max-width: 959.98px) {
 	// Layout Breakpoint.Small upper limit
+
 	.review-container {
 		flex-direction: column;
+	}
+
+	.review-wrapper {
 		margin: 8px 0;
 		padding: 24px 14px 14px;
 		font-size: 14px;
