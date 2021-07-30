@@ -51,6 +51,7 @@
 @media screen and (max-width: 959.98px) {
 	// Layout Breakpoint.Small upper limit
 	.reviews {
+		display: flex;
 		flex-direction: column;
 		margin-top: 16px;
 	}

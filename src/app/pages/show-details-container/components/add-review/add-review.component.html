@@ -1,11 +1,11 @@
 <mat-card class="review-card">
 	<form [formGroup]="addReviewFormGroup">
-		<!-- <textarea #comment></textarea> -->
-
-		<mat-form-field appearance="outline">
-			<input matInput type="text" formControlName="comment" />
-			<mat-error *ngIf="addReviewFormGroup.get('comment')?.errors?.required">A comment is required.</mat-error>
-		</mat-form-field>
+		<textarea #comment class="textarea" formControlName="comment">
+			<mat-error *ngIf="addReviewFormGroup.get('comment')?.errors?.required">
+				A comment is required.
+			</mat-error>
+		</textarea
+		>
 
 		<div class="review-bottom">
 			<div class="review-rating">
