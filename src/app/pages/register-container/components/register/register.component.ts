@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
 import { emailInPasswordValidator } from 'src/app/validators/email-in-password.validator';
 import { matchingPasswords } from 'src/app/validators/matching-passwords.validator';
 import { validEmail } from 'src/app/validators/valid-email.validator';
@@ -19,6 +20,7 @@ export interface IRegisterData {
 export class RegisterComponent {
 	constructor(private fb: FormBuilder) {}
 
+	@Input() loading$: Subject<boolean>;
 	@Output() registerUser: EventEmitter<IRegisterData> = new EventEmitter();
 
 	public registerFormGroup: FormGroup = this.fb.group(
@@ -37,7 +39,6 @@ export class RegisterComponent {
 	);
 
 	public signupAction() {
-		console.log(this.registerFormGroup.value);
 		this.registerUser.emit(this.registerFormGroup.value);
 		this.registerFormGroup.reset();
 	}

@@ -1,5 +1,1 @@
-<ng-container *ngIf="loading$ | async">
-	<mat-progress-bar mode="indeterminate"></mat-progress-bar>
-</ng-container>
-
-<app-login (loginUser)="onUserLogin($event)"> </app-login>
+<app-login [loading$]="loading$" (loginUser)="onUserLogin($event)"> </app-login>

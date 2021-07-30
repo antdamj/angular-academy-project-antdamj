@@ -39,10 +39,15 @@ input:-webkit-autofill:active {
 	height: 50px;
 	width: 144px;
 	border-radius: 32px;
-	margin: 0 auto 28px;
+	margin: 0 auto;
 	background-color: colors.$white;
 	color: colors.$purple;
 	text-transform: uppercase;
+}
+
+.loading {
+	height: 4px;
+	margin: 12px auto;
 }
 
 .button[disabled],

@@ -54,6 +54,13 @@
 			Sign up
 		</button>
 
+		<ng-container *ngIf="loading$ | async; else elseLoading">
+			<mat-progress-bar class="loading" mode="indeterminate"></mat-progress-bar>
+		</ng-container>
+		<ng-template #elseLoading>
+			<div class="loading"></div>
+		</ng-template>
+
 		<p>Already have an account? <a class="link" href="/login">Login</a> here.</p>
 	</form>
 </mat-card>
