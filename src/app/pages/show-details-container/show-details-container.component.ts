@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Review } from 'src/app/services/review.model';
 import { ReviewService } from 'src/app/services/review.service';
 import { Show } from 'src/app/services/show.model';
@@ -54,7 +54,6 @@ export class ShowDetailsContainerComponent implements OnInit {
 
 	ngOnInit(): void {
 		const id: string | null = this.route.snapshot.paramMap.get('id');
-		const id$: Observable<string | null> = of(id);
 		console.log('Data id is', id);
 
 		if (id) {

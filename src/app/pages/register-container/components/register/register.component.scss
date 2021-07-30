@@ -47,7 +47,7 @@ input:-webkit-autofill:active {
 
 .button[disabled],
 .button:disabled {
-	color: gray;
+	background-color: rgba($color: colors.$white, $alpha: 0.6);
 }
 
 @media screen and (max-width: 959.98px) {

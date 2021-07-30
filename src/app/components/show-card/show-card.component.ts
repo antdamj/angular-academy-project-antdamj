@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
 	selector: 'app-show-card',
@@ -10,8 +10,4 @@ export class ShowCardComponent {
 	@Input() title: string;
 	@Input() avgRating: number;
 	@Input() imageUrl: string;
-
-	heyTitle(): void {
-		console.log(this.title);
-	}
 }

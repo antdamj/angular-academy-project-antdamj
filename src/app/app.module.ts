@@ -8,13 +8,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
-
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { AppComponent } from './app.component';
 import { MainLayoutComponent } from 'src/app/components/main-layout/main-layout.component';
 import { SidenavComponent } from 'src/app/components/sidenav/sidenav.component';
 import { AllShowsContainerComponent } from 'src/app/pages/all-shows-container/all-shows-container.component';
@@ -40,44 +39,44 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
 	declarations: [
-		AppComponent,
-		MainLayoutComponent,
-		SidenavComponent,
-		AllShowsContainerComponent,
-		ShowListComponent,
-		ShowCardComponent,
-		RatingComponent,
-		ShowListComponent,
-		TopShowsContainerComponent,
-		ShowDetailsContainerComponent,
-		ShowDetailsCardComponent,
-		ShowReviewComponent,
-		LoginComponent,
-		RegisterComponent,
-		AuthenticationLayoutComponent,
-		LoginContainerComponent,
-		RegisterContainerComponent,
-		ShowReviewListComponent,
-		ShowReviewComponent,
 		AddReviewComponent,
+		AllShowsContainerComponent,
+		AppComponent,
+		AuthenticationLayoutComponent,
+		LoginComponent,
+		LoginContainerComponent,
 		LogoComponent,
+		MainLayoutComponent,
 		ProfileComponent,
+		RatingComponent,
+		RegisterComponent,
+		RegisterContainerComponent,
+		ShowCardComponent,
+		ShowDetailsCardComponent,
+		ShowDetailsContainerComponent,
+		ShowListComponent,
+		ShowListComponent,
+		ShowReviewComponent,
+		ShowReviewComponent,
+		ShowReviewListComponent,
+		SidenavComponent,
+		TopShowsContainerComponent,
 	],
 	imports: [
-		BrowserModule,
-		BrowserAnimationsModule,
-		MatCardModule,
-		MatSidenavModule,
-		MatIconModule,
 		AppRoutingModule,
-		MatProgressSpinnerModule,
-		MatInputModule,
-		ReactiveFormsModule,
-		MatButtonModule,
+		BrowserAnimationsModule,
+		BrowserModule,
 		HttpClientModule,
-		MatProgressBarModule,
-		MatSnackBarModule,
+		MatButtonModule,
+		MatCardModule,
+		MatIconModule,
+		MatInputModule,
 		MatMenuModule,
+		MatProgressBarModule,
+		MatProgressSpinnerModule,
+		MatSidenavModule,
+		MatSnackBarModule,
+		ReactiveFormsModule,
 	],
 	providers: [
 		{

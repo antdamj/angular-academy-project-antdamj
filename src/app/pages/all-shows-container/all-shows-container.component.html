@@ -2,4 +2,4 @@
 	<app-show-list [shows]="shows"> </app-show-list>
 </ng-container>
 
-<ng-container *ngIf="errorOccurred$ | async as errorOccurred"> error. </ng-container>
+<ng-container *ngIf="errorOccurred$ | async"> Error while fetching data. Please reload. </ng-container>

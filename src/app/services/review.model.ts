@@ -18,5 +18,3 @@ export class Review {
 		this.comment = reviewData.comment;
 	}
 }
-
-// razdvojit reviewe u service pa da imaš nešto a la relacijske tablice

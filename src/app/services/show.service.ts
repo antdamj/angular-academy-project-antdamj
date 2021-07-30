@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { merge, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IShow } from 'src/app/interfaces/show.interface';
 import { Show } from './show.model';
 import { map } from 'rxjs/operators';

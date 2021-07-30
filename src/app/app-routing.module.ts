@@ -19,7 +19,6 @@ const routes: Routes = [
 			{
 				path: '',
 				component: AllShowsContainerComponent,
-				canActivate: [AppGuard],
 			},
 			{
 				path: 'top-rated',

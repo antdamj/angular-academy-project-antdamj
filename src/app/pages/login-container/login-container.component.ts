@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { of, Subject, throwError } from 'rxjs';
+import { Subject, throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { ILoginData } from './components/login/login.component';

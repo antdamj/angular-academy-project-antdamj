@@ -15,6 +15,5 @@ export class ProfileComponent {
 
 	public processChange(form: any) {
 		const files = form.files;
-		console.log(files);
 	}
 }

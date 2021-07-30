@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SidenavComponent {
 	constructor(private authService: AuthService, private router: Router) {}
 
-	links: Array<ILink> = [
+	public links: Array<ILink> = [
 		{
 			url: '',
 			title: 'All shows',
