@@ -1,0 +1,21 @@
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+form > div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* don't highlight stars in span */
+mat-icon {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+mat-icon:hover {
+	cursor: pointer;
+}

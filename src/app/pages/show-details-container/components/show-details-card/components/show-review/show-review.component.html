@@ -3,6 +3,12 @@
 		<div class="grid-container">
 			<div class="review">{{ review.rating }}/5</div>
 			<div class="review">{{ review.comment }}</div>
+			<div class="review review-action" (click)="onEdit(review.id)">
+				<mat-icon>edit</mat-icon>
+			</div>
+			<div class="review review-action" (click)="onDelete(review.id)">
+				<mat-icon>delete</mat-icon>
+			</div>
 		</div>
 	</div>
 </ng-container>

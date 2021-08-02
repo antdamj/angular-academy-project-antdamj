@@ -12,5 +12,5 @@ import { ShowService } from 'src/app/services/show.service';
 export class TopShowsContainerComponent {
 	constructor(private showService: ShowService) {}
 
-	public shows$: Observable<Array<Show>> = this.showService.topRated;
+	public shows$: Observable<Array<Show>> = this.showService.topRated();
 }
